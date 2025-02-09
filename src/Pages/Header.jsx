@@ -8,8 +8,8 @@ import { FaUser } from "react-icons/fa";
 
 function Header() {
     return (
-        <div className='bg-ten h-[15vh] shadow-2xl flex justify-between items-center px-5'>
-            <span><img className="size-21" src={Logo} /></span>
+        <div className='bg-ten h-[15vh] shadow-2xl flex justify-between items-center px-5 text-bordo font-arial'>
+            <span><img className="size-[10vh]" src={Logo} /></span>
             <span className='flex gap-3 items-center'>
 
                 <span className='flex items-center'>

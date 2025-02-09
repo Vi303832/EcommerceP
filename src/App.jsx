@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Layout from './Pages/Layout'
 import Home from './Pages/Home'
-
+import AddData from './Pages/AddData'
 
 import { Routes, Route } from "react-router-dom"
 function App() {
@@ -13,6 +13,7 @@ function App() {
         <Route path='/' element={<Layout >
           <Home />
         </Layout >} />
+        <Route path='/AddData' element={<AddData />} />
 
       </Routes>
 
