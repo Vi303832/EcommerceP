@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@theme {
+
+  --font-arial:arial;
+--color-ten:#fbfad3;
+--color-bordo:#730404;
+--color-koyubordo:#4a0d04;
+--color-kahve:#3c2a23;
+
+}
