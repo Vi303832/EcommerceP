@@ -44,25 +44,30 @@ function Products() {
         navigate(`/Ürün/${id}`)
 
     }
+    let handlenav = (nav) => {
+
+        navigate(`/${nav}`)
+
+    }
 
 
     return (
         <div>
             <div className='min-h-screen w-[100%] font-arial text-bordo '>
-                <div className='p-15 '>
+                <div className='p-15 cursor-pointer'>
                     <span className='flex gap-2 items-center justfiy-center'><span className='text-5xl'>Bütün Ürünler</span><span onClick={Displayer} className={`text-5xl cursor-pointer transition transform ease-linear duration-200 ${plus === "-" ? 'rotate-180' : 'rotate-0'}`}>{plus}</span></span>
                     <div
                         className={`transition-all duration-1000 ease-in-out overflow-hidden ${anim ? "max-h-96 p-8 opacity-100" : "max-h-0 p-0 opacity-0"
                             }`}
                     >
-                        <div className="p-2 text-xl">Hoodie</div>
-                        <div className="p-2 text-xl">Sweatshirt</div>
-                        <div className="p-2 text-xl">T-shirt</div>
-                        <div className="p-2 text-xl">Other Products</div>
+                        <div className="p-2 text-xl" onClick={() => handlenav("Hoodie")}>Hoodie</div>
+                        <div className="p-2 text-xl" onClick={() => handlenav("Sweatshirt")}>Sweatshirt</div>
+                        <div className="p-2 text-xl" onClick={() => handlenav("Tshirt")}>T-shirt</div>
+                        <div className="p-2 text-xl" onClick={() => handlenav("Other")}>Other Products</div>
                     </div>
                 </div>
 
-                <div className=' bg-kahve  mx-10 flex justify-center py-10 rounded-3xl'>
+                <div className=' bg-kahve transition-all duration-1000 ease-in-out mx-10 flex justify-center py-10 rounded-3xl'>
 
                     <div className='grid grid-cols-3 mx-20 gap-x-10 gap-y-10 grid-rows-3 '>
 
