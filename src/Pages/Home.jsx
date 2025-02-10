@@ -4,7 +4,7 @@ import Hero from "../Assets/Hero.jpg"
 
 function Home() {
     return (
-        <div className='text-bordo font-arial'>
+        <div className='text-bordo font-arial min-h-screen'>
             <div className='flex flex-col justify-center items-center gap-6 py-15'>
                 <h1 className='text-4xl'>Estetik ve Uyumun Buluşma Noktası</h1>
                 <h2>KUF ile Günlük Stilinizi Yenileyin</h2>
