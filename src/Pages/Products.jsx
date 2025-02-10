@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { collection, getDocs } from 'firebase/firestore'
 import { db } from '../Firebase'
+import { useNavigate } from 'react-router-dom'
 
 
 function Products() {
@@ -8,6 +9,7 @@ function Products() {
     let [products, setproducts] = useState([])
     let [plus, setplus] = useState("+")
     let [anim, setanim] = useState(false)
+    let navigate = useNavigate();
 
     useEffect(() => {
         const docRef = collection(db, "Ürünler");
@@ -37,6 +39,11 @@ function Products() {
 
     }
 
+    let handleClick = (id) => {
+
+        navigate(`/Ürün/${id}`)
+
+    }
 
 
     return (
@@ -64,8 +71,8 @@ function Products() {
                         {products && products.map(p => {
                             return (
                                 <>
-                                    <div className='bg-ten w-[60vh] h-[70vh] rounded-2xl'>
-                                        <div className='flex justify-center p-2 '><img className="rounded-2xl w-[80%] h-[60%] shadow-2xl" src={p.images[0]} alt="foto" /></div>
+                                    <div key={p.id} className='bg-ten w-[60vh] h-[70vh] rounded-2xl'>
+                                        <div onClick={() => handleClick(p.id)} className='flex justify-center p-2 cursor-pointer '><img className="rounded-2xl w-[80%] h-[60%] shadow-2xl" src={p.images[0]} alt="foto" /></div>
                                         <div className='flex flex-col justify-center items-center py-5 gap-2'>
                                             <div className='text-xl'>{p.name}</div>
                                             <div>{p.price}TL</div>
@@ -75,7 +82,7 @@ function Products() {
 
 
 
-                                    </div>
+                                    </div >
 
 
                                 </>
