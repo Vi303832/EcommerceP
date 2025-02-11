@@ -11,6 +11,7 @@ function Products() {
     let [anim, setanim] = useState(false)
     let [filter, setfilter] = useState(false)
     let [selectedcat, setselectedcat] = useState([])
+    let [selectedsort, setselectedsort] = useState([])
 
     let navigate = useNavigate();
 
@@ -38,6 +39,7 @@ function Products() {
 
     let Displayer = () => {
         setplus((prev) => (prev === "+" ? "-" : "+"));
+        setfilter(false)
         setanim(!anim)
 
     }
@@ -55,6 +57,19 @@ function Products() {
     let handlefilter = () => {
         setfilter(!filter)
 
+        if (anim) {
+            setanim(false)
+            setplus("+")
+
+
+        }
+
+    }
+    let handleclear = () => {
+        setselectedcat([])
+
+
+
     }
     let addclicked = (e) => {
         if (selectedcat.includes(e.target.value)) {
@@ -66,22 +81,40 @@ function Products() {
 
 
     }
+
+
     let getitems = async () => {
 
         try {
-            if (!Array.isArray(selectedcat) || selectedcat.length === 0) {
-                setError('Please select at least one category or color.');
-                return;
+            let items = [];
+            const docRef = collection(db, "Ürünler");
+            if (selectedcat.length === 0) {
+                const docSnap = await getDocs(docRef);
+
+                docSnap.forEach((doc) => {
+                    items.push(doc.data());
+                });
+
+            }
+            else {
+
+                let q = query(docRef, where("categorys", "array-contains-any", selectedcat));
+                let docsnap = await getDocs(q);
+
+
+                docsnap.forEach((doc) => {
+                    items.push(doc.data());
+                });
             }
 
-            const docRef = collection(db, "Ürünler");
-            let q = query(docRef, where("categorys", "array-contains-any", selectedcat));
-            let docsnap = await getDocs(q);
 
-            let items = [];
-            docsnap.forEach((doc) => {
-                items.push(doc.data());
-            });
+            if (selectedsort.length > 0) {
+                if (selectedsort[0] === "Artan") {
+                    items.sort((a, b) => a.price - b.price);
+                } else if (selectedsort[0] === "Azalan") {
+                    items.sort((a, b) => b.price - a.price);
+                }
+            }
 
             setproducts(items);
         } catch (error) {
@@ -89,6 +122,15 @@ function Products() {
             console.error('Error getting documents: ', error);
         } finally {
 
+        }
+    };
+
+    let handlesort = (e) => {
+        const value = e.target.value;
+        if (selectedsort.includes(value)) {
+            setselectedsort([]); // Eğer seçili olan seçeneği tekrar tıklarsa, sıralamayı kaldır
+        } else {
+            setselectedsort([value]); // Sadece bir sıralama seçeneği seçilebilir
         }
     };
 
@@ -112,8 +154,8 @@ function Products() {
 
                     </div>
                     <div className='p-15 cursor-pointer h-[100%] '>
-                        <span className={'flex gap-2 items-center  justify-end p-2  '}>{<button onClick={() => setselectedcat([])}
-                            className={` text-xl  rounded-2xl border-3 transition-all ease-linear duration-1000 px-2 py-1 relative p-0 ${filter
+                        <span className={'flex gap-2 items-center  justify-end p-2  '}>{<button onClick={() => handleclear()}
+                            className={` text-xl  rounded-2xl border-3 transition-all ease-linear duration-1000 px-2 py-1   cursor-pointer relative p-0 ${filter
                                 ? "opacity-100 left-0  "
                                 : "opacity-0  left-3 "
                                 }`}
@@ -129,6 +171,30 @@ function Products() {
                             <div className='h-[100%] w-[100%]'>
                                 <div className="flex flex-row gap-10">
                                     {/* Hoodie Selection */}
+                                    <div className="flex flex-col gap-2 items-center justify-center w-[20vh] h-[60%]">
+                                        <div className="text-2xl">Sırala</div>
+                                        <label className={` py-2 w-[20vh] text-center rounded-3xl text-lg box-border border-2 transition ease-linear duration-1000 ${selectedsort.includes("Artan") ? ' border-4 border-kahve scale-105' : 'scale-100'}`} >
+                                            <input
+                                                type="checkbox"
+                                                value="Artan"
+                                                className='hidden'
+                                                onClick={(e) => handlesort(e)}
+                                                checked={selectedsort.includes("Artan")}
+                                            />
+                                            Artan Fiyat
+                                        </label>
+                                        <label className={`transition ease-linear duration-1000 py-2 w-[20vh] text-center rounded-3xl text-lg box-border border-2 ${selectedsort.includes("Azalan") ? ' border-4 border-kahve scale-105' : 'scale-100'}`} >
+                                            <input
+                                                type="checkbox"
+                                                value="Azalan"
+                                                onClick={(e) => handlesort(e)}
+                                                className='hidden'
+                                                checked={selectedsort.includes("Azalan")}
+                                            />
+                                            Azalan Fiyat
+                                        </label>
+
+                                    </div>
                                     <div className="flex flex-col gap-2 items-center justify-center w-[20vh] h-[60%]">
                                         <div className="text-2xl">Modeller</div>
                                         <label className={` py-2 w-[20vh] text-center rounded-3xl text-lg box-border border-2 transition ease-linear duration-1000 ${selectedcat.includes("Hoodie") ? ' border-4 border-kahve scale-105' : 'scale-100'}`} >
@@ -213,7 +279,7 @@ function Products() {
 
 
                             </div>
-                            <button onClick={getitems} className='py-2 w-[20vh] text-center rounded-3xl text-lg box-border border-2'>Uygula</button>
+                            <button onClick={getitems} className='py-2 w-[20vh] text-center rounded-3xl cursor-pointer text-lg box-border border-2'>Uygula</button>
 
                         </div>
 

@@ -4,27 +4,98 @@ import { FaSearch } from "react-icons/fa";
 import { IoCartSharp } from "react-icons/io5";
 import { FaUser } from "react-icons/fa";
 import { useNavigate, } from "react-router";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { db } from '../Firebase';
+import { useRef } from 'react';
 
 function Header() {
-
+    let [input, setinput] = useState("");
     let navigate = useNavigate();
     let [open, setopen] = useState(false);
+    let [products, setproducts] = useState([])
+    let searchRef = useRef(null);
+    let searchIconRef = useRef(null);
 
     const handleNavigate = (path) => {
         navigate(path);
     };
 
     let handleopen = () => {
+        setopen(open ? false : true);
+    }
 
-        setopen(!open);
+    let handleinput = (e) => {
+
+        setinput(e.target.value)
+
+
 
     }
 
+    {/*Eventhandler Olayı*/ }
+
+    useEffect(() => {
+        function handleClickOutside(event) {
+            if (searchRef.current && !searchRef.current.contains(event.target)) {
+                if (searchIconRef.current && !searchIconRef.current.contains(event.target)) {
+                    setopen(false);
+                    setinput(""); // Arama çubuğunu sıfırla
+                }
+            }
+        }
+
+        document.addEventListener("click", handleClickOutside);
+        return () => {
+            document.removeEventListener("click", handleClickOutside);
+        };
+    }, []);
+
+    useEffect(() => {
+
+        const fetchData = async () => {
+            try {
+                if (!input || input.trim() === '') {
+                    setproducts([]); // Giriş boşsa ürünleri temizle
+                    return;
+                }
+
+                let items = [];
+                const docRef = collection(db, "Ürünler");
+
+                // Kategori sorguları
+                const categories = ["Gri", "Ekru", "Yeşil", "Sweatshirt", "Hoodie", "Kahverengi", "Saks Mavisi", "Tshirt", "Other"];
+                const queries = categories
+                    .filter(category => category.startsWith(input)) // Girişle başlayan kategorileri filtrele
+                    .map(category => query(docRef, where("categorys", "array-contains", category)));
+
+                // Tüm sorguları çalıştır ve sonuçları birleştir
+                const snapshots = await Promise.all(queries.map(q => getDocs(q)));
+                const mergedResults = new Map();
+
+                snapshots.forEach(snapshot => {
+                    snapshot.forEach(doc => {
+                        if (!mergedResults.has(doc.id)) {
+                            mergedResults.set(doc.id, { id: doc.id, ...doc.data() });
+                        }
+                    });
+                });
+
+                // Map'i diziye dönüştür
+                const uniqueItems = Array.from(mergedResults.values());
+                setproducts(uniqueItems);
+            } catch (error) {
+                console.error("Error fetching documents: ", error);
+            }
+        };
+        console.log(products)
+        fetchData();
+    }, [input]);
+
     return (
-        <div>
+        <div >
             <div className=' h-[15vh] shadow-2xl grid grid-cols-3 grid-rows-1 px-5 text-bordo font-arial w-[100%]'>
-                <span className='flex justify-start items-center' onClick={() => handleNavigate("/")}><img className="size-[10vh] cursor-pointer" src={Logo} /></span>
+                <span className='flex justify-start items-center' ><img onClick={() => handleNavigate("/")} className="size-[10vh] cursor-pointer" src={Logo} /></span>
 
                 <div className='flex gap-15 cursor-pointer items-center justify-around'>
                     <div onClick={() => handleNavigate("/Ürünler")}>Ürünler</div>
@@ -39,7 +110,7 @@ function Header() {
 
                 <span className='flex gap-3 items-center justify-end text-xl cursor-pointer '>
 
-                    <span className='flex items-center text-2xl'>
+                    <span ref={searchIconRef} className='flex items-center text-2xl'>
                         <FaSearch onClick={() => handleopen()} />
 
 
@@ -52,9 +123,45 @@ function Header() {
 
 
             </div>
+            <div ref={searchRef}>
+                {<input className={`shadow-sm box-border ease-in-out px-2 transition-all duration-1000 focus:outline-none ${open ? "py-1  block w-[100%] bg-[#f7f6ec] h-16 " : "p-0 w-[100%] h-0  "}`} placeholder='İstediğiniz ürünü aratın , kolayca bulun!' type='text' value={input} onChange={(e) => handleinput(e)} />}
+                <div className={`absolute   bg-[#deddd5] transition-all duration-500  w-[70%] mx-[15%] ${input && open ? "block h-screen" : " h-0 opacity-0 "}`}>
 
-            {<input className={`shadow-sm box-border ease-in-out px-2 transition-all duration-1000 ${open ? "py-1  block w-[100%] bg-[#f7f6ec] h-16 " : "p-0 w-[100%] h-0  "}`} placeholder='İstediğiniz ürünü aratın , kolayca bulun!' type='text' />}
+                    <div className={`absolute p-16 grid grid-cols-3 mx-10 gap-x-10 gap-y-10 grid-rows-2 w-[100%]  ${input ? "block h-screen" : " h-0 opacity-0 hidden"}`}>
 
+                        {products && products.map(p => {
+                            return (
+
+                                <>
+                                    <div key={p.id} className='cursor-pointer bg-ten w-[70%] h-[90%] rounded-2xl font-arial text-md'>
+                                        <div onClick={() => handleClick(p.id)} className='flex justify-center p-2 cursor-pointer '><img className="rounded-2xl w-[80%] h-[60%] shadow-2xl" src={p.images[0]} alt="foto" /></div>
+                                        <div className='flex flex-col justify-center items-center py-1 gap-2'>
+                                            <div className=''>{p.name}</div>
+                                            <div>{p.price}TL</div>
+                                        </div>
+
+                                    </div>
+
+                                </>
+                            )
+                        })}
+                    </div>
+
+
+
+
+
+
+
+
+                </div>
+
+
+
+
+
+
+            </div>
 
 
         </div>

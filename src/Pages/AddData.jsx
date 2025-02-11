@@ -13,7 +13,7 @@ function AddData() {
     const [images, setimage] = useState([]);
     const [colors, setColors] = useState([]);
     const [name, setName] = useState("");
-    const [price, setPrice] = useState("");
+    const [price, setPrice] = useState(0);
     const [sizes, setSizes] = useState({ S: 0, M: 0, L: 0, XL: 0, XXL: 0 });
     const [discount, setDiscount] = useState("");
     const [description, setDescription] = useState("");
