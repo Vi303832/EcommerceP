@@ -92,6 +92,13 @@ function Header() {
         fetchData();
     }, [input]);
 
+    let handleClick = (id) => {
+        setopen(false)
+        navigate(`/Ürün/${id}`)
+
+    }
+
+
     return (
         <div >
             <div className=' h-[15vh] shadow-2xl grid grid-cols-3 grid-rows-1 px-5 text-bordo font-arial w-[100%]'>
@@ -125,7 +132,7 @@ function Header() {
             </div>
             <div ref={searchRef}>
                 {<input className={`shadow-sm box-border ease-in-out px-2 transition-all duration-1000 focus:outline-none ${open ? "py-1  block w-[100%] bg-[#f7f6ec] h-16 " : "p-0 w-[100%] h-0  "}`} placeholder='İstediğiniz ürünü aratın , kolayca bulun!' type='text' value={input} onChange={(e) => handleinput(e)} />}
-                <div className={`absolute   bg-[#deddd5] transition-all duration-500  w-[70%] mx-[15%] ${input && open ? "block h-screen" : " h-0 opacity-0 "}`}>
+                <div className={`absolute   bg-[#deddd5] transition-all duration-500  w-[70%] mx-[15%] ${input && open ? "block h-screen z-10 " : " h-0 opacity-0 "}`}>
 
                     <div className={`absolute p-16 grid grid-cols-3 mx-10 gap-x-10 gap-y-10 grid-rows-2 w-[100%]  ${input ? "block h-screen" : " h-0 opacity-0 hidden"}`}>
 

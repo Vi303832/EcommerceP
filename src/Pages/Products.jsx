@@ -140,7 +140,7 @@ function Products() {
             <div className='min-h-screen w-[100%] font-arial text-bordo '>
                 <div className='flex justify-between'>
                     <div className='p-15 cursor-pointer'>
-                        <span className='flex gap-2 items-center justfiy-center'><span className='text-5xl'>Bütün Ürünler</span><span onClick={Displayer} className={`text-5xl cursor-pointer transition transform ease-linear duration-200 ${plus === "-" ? 'rotate-180' : 'rotate-0'}`}>{plus}</span></span>
+                        <span onClick={Displayer} className='flex gap-2 items-center justfiy-center'><span className='text-5xl'>Bütün Ürünler</span><span className={`text-5xl cursor-pointer transition transform ease-linear  duration-200 ${plus === "-" ? 'rotate-180' : 'rotate-0'}`}>{plus}</span></span>
                         <div
                             className={`transition-all duration-1000 ease-in-out overflow-hidden ${anim ? "max-h-96 p-8 opacity-100" : "max-h-0 p-0 opacity-0"
                                 }`}
@@ -155,7 +155,7 @@ function Products() {
                     </div>
                     <div className='p-15 cursor-pointer h-[100%] '>
                         <span className={'flex gap-2 items-center  justify-end p-2  '}>{<button onClick={() => handleclear()}
-                            className={` text-xl  rounded-2xl border-3 transition-all ease-linear duration-1000 px-2 py-1   cursor-pointer relative p-0 ${filter
+                            className={` text-xl  rounded-2xl border-3 transition-all ease-linear duration-500 px-2 py-1   cursor-pointer relative p-0 ${filter
                                 ? "opacity-100 left-0  "
                                 : "opacity-0  left-3 "
                                 }`}
