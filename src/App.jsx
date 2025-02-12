@@ -8,18 +8,47 @@ import Hoodie from './Pages/Hoodie'
 import Tshirt from './Pages/Tshirt'
 import Sweatshirt from './Pages/Sweatshirt'
 import Other from './Pages/Other'
+import Auth from './Pages/Auth'
+import Register from './Pages/Register'
+import { ToastContainer, toast } from 'react-toastify';
 
 import { Routes, Route } from "react-router-dom"
+import { Bounce } from 'react-toastify'
 function App() {
 
 
   return (
     <>
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        limit={2}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        transition={Bounce}
+      />
       <Routes>
+
+        <Route path='/AddData' element={<AddData />} />
+
+        <Route path='/Giriş' element={<Layout >
+          <Auth />
+        </Layout >} />
+        <Route path='/Kaydol' element={<Layout >
+          <Register />
+        </Layout >} />
+
+
         <Route path='/' element={<Layout >
           <Home />
         </Layout >} />
-        <Route path='/AddData' element={<AddData />} />
+
         <Route path='/Ürünler' element={<Layout >
           <Products />
         </Layout >} />

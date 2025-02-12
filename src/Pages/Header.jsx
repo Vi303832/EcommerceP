@@ -100,7 +100,7 @@ function Header() {
 
 
     return (
-        <div >
+        <div className='h-[100%]'>
             <div className=' h-[15vh] shadow-2xl grid grid-cols-3 grid-rows-1 px-5 text-bordo font-arial w-[100%]'>
                 <span className='flex justify-start items-center' ><img onClick={() => handleNavigate("/")} className="size-[10vh] cursor-pointer" src={Logo} /></span>
 
@@ -123,16 +123,16 @@ function Header() {
 
                     </span>
 
-                    <span className='flex items-center text-2xl'><FaUser /></span>
+                    <span className='flex items-center text-2xl'><FaUser onClick={() => handleNavigate("/Giriş")} /></span>
                     <span className='flex items-center border-2  py-1 justify-between gap-1 rounded-3xl' ><span className='px-2 text-md flex gap-1 items-center'><IoCartSharp />Sepet</span><span className=' border-2 rounded-full text-center  px-2 mr-3 text-sm  '>0</span></span>
 
                 </span>
 
 
             </div>
-            <div ref={searchRef}>
-                {<input className={`shadow-sm box-border ease-in-out px-2 transition-all duration-1000 focus:outline-none ${open ? "py-1  block w-[100%] bg-[#f7f6ec] h-16 " : "p-0 w-[100%] h-0  "}`} placeholder='İstediğiniz ürünü aratın , kolayca bulun!' type='text' value={input} onChange={(e) => handleinput(e)} />}
-                <div className={`absolute   bg-[#deddd5] transition-all duration-500  w-[70%] mx-[15%] ${input && open ? "block h-screen z-10 " : " h-0 opacity-0 "}`}>
+            <div ref={searchRef} className={`  ease-in-out z-10 transition-all w-[100%] duration-1000 ${open ? "h-[65px]   " : " h-0 "}`}>
+                {<input className={`shadow-sm box-border ease-in-out px-2 transition-all duration-1000 focus:outline-none ${open ? "py-1  block w-[100%] bg-[#f7f6ec] h-16 " : "py-0 w-[100%] h-0  "}`} placeholder='İstediğiniz ürünü aratın , kolayca bulun!' type='text' value={input} onChange={(e) => handleinput(e)} />}
+                <div className={`absolute   bg-[#deddd5] transition-all duration-500  w-[70%] mx-[15%] ${input && open ? " h-screen z-10 " : " h-0 opacity-0 "}`}>
 
                     <div className={`absolute p-16 grid grid-cols-3 mx-10 gap-x-10 gap-y-10 grid-rows-2 w-[100%]  ${input ? "block h-screen" : " h-0 opacity-0 hidden"}`}>
 
