@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { use, useEffect, useState } from 'react'
 import Layout from './Pages/Layout'
 import Home from './Pages/Home'
 import AddData from './Pages/AddData'
@@ -9,12 +9,35 @@ import Tshirt from './Pages/Tshirt'
 import Sweatshirt from './Pages/Sweatshirt'
 import Other from './Pages/Other'
 import Auth from './Pages/Auth'
+import User from './Pages/User'
 import Register from './Pages/Register'
 import { ToastContainer, toast } from 'react-toastify';
 
 import { Routes, Route } from "react-router-dom"
 import { Bounce } from 'react-toastify'
+import { useDispatch } from 'react-redux'
+import { setAuth, setemail, setuid } from './Slices/UserSlice'
+
+
+
+
+
 function App() {
+
+  let dispatch = useDispatch();
+
+
+
+  useEffect(() => {
+
+    const a = localStorage.getItem('uid');
+    const b = localStorage.getItem('userEmail');
+    a &&
+      dispatch(setemail(b))
+    dispatch(setuid(a))
+    dispatch(setAuth(true))
+
+  }, [])
 
 
   return (
@@ -36,6 +59,10 @@ function App() {
       <Routes>
 
         <Route path='/AddData' element={<AddData />} />
+
+        <Route path='/Panel' element={<Layout >
+          <User />
+        </Layout >} />
 
         <Route path='/Giriş' element={<Layout >
           <Auth />

@@ -8,8 +8,11 @@ import { useState, useEffect } from 'react';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../Firebase';
 import { useRef } from 'react';
+import { useSelector } from 'react-redux';
+
 
 function Header() {
+    let { uid, email, isAuth } = useSelector(s => s.userinfo)
     let [input, setinput] = useState("");
     let navigate = useNavigate();
     let [open, setopen] = useState(false);
@@ -52,6 +55,9 @@ function Header() {
     }, []);
 
     useEffect(() => {
+
+
+
 
         const fetchData = async () => {
             try {
@@ -104,10 +110,11 @@ function Header() {
             <div className=' h-[15vh] shadow-2xl grid grid-cols-3 grid-rows-1 px-5 text-bordo font-arial w-[100%]'>
                 <span className='flex justify-start items-center' ><img onClick={() => handleNavigate("/")} className="size-[10vh] cursor-pointer" src={Logo} /></span>
 
-                <div className='flex gap-15 cursor-pointer items-center justify-around'>
+                <div className='flex gap-15 cursor-pointer items-center justify-around text-xl'>
                     <div onClick={() => handleNavigate("/Ürünler")}>Ürünler</div>
                     <div>About Us</div>
                     <div>Contact</div>
+
                 </div>
 
 
@@ -123,7 +130,12 @@ function Header() {
 
                     </span>
 
-                    <span className='flex items-center text-2xl'><FaUser onClick={() => handleNavigate("/Giriş")} /></span>
+                    <span className='flex items-center text-2xl'></span>{
+                        isAuth ?
+                            <div><FaUser onClick={() => handleNavigate("/Panel")} /></div> :
+                            <div><FaUser onClick={() => handleNavigate("/Giriş")} /></div>
+                    }
+
                     <span className='flex items-center border-2  py-1 justify-between gap-1 rounded-3xl' ><span className='px-2 text-md flex gap-1 items-center'><IoCartSharp />Sepet</span><span className=' border-2 rounded-full text-center  px-2 mr-3 text-sm  '>0</span></span>
 
                 </span>

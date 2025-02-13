@@ -20,10 +20,12 @@ function Register() {
     }
 
     const validationSchema = Yup.object({
+        name: Yup.string()
+            .required('Kullanıcı adı zorunludur'),
         email: Yup.string()
             .email('Geçersiz email adresi')
             .required('Email zorunludur'),
-        password: Yup.string()
+        password: Yup.number()
             .min(6, 'Şifre en az 6 karakter olmalıdır')
             .required('Şifre zorunludur'),
         confirmPassword: Yup.string()
@@ -74,6 +76,7 @@ function Register() {
                             {({ isSubmitting }) => (
                                 <Form>
                                     <div className='flex flex-col gap-3 justify-center items-center w-[100%] '>
+
                                         <div className='w-[70%]'>
                                             <Field type="email" id="email" name="email" className='border-2 w-[100%] py-1 rounded-2xl px-2 text-black ' placeholder='Email' />
                                             <ErrorMessage name="email" component="div" className="error" />
@@ -85,7 +88,7 @@ function Register() {
                                         </div>
                                         <div className='w-[70%]'>
 
-                                            <Field type="password" id="password" name="confirmpassword" className='border-2  w-[100%] py-1 rounded-2xl px-2 text-black' placeholder='Şifre' />
+                                            <Field type="password" id="confirmpassword" name="confirmpassword" className='border-2  w-[100%] py-1 rounded-2xl px-2 text-black' placeholder='Şifre' />
                                             <ErrorMessage name="confirmpassword" component="div" />
                                         </div>
 
@@ -127,23 +130,11 @@ function Register() {
 
 {/* 
     <div>
-                                        <label>Email</label>
-                                        <Field type="email" name="email" />
-                                        <ErrorMessage name="email" component="div" />
-                                    </div>
-
-                                    <div>
-                                        <label>Şifre</label>
-                                        <Field type="password" name="password" />
-                                        <ErrorMessage name="password" component="div" />
-                                    </div>
-
-                                    <div>
-                                        <label>Şifre Tekrar</label>
-                                        <Field type="password" name="confirmPassword" />
-                                        <ErrorMessage name="confirmPassword" component="div" />
-                                    </div>
-
+                                    
+<div className='w-[70%]'>
+                                            <Field type="text" id="name" name="name" className='border-2 w-[100%] py-1 rounded-2xl px-2 text-black ' placeholder='Kullanıcı Adı' />
+                                            <ErrorMessage name="name" component="div" className="error" />
+                                        </div>
                                     
     
     

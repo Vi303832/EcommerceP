@@ -20,6 +20,16 @@ function Auth() {
             let userbilgi = await signInWithEmailAndPassword(auth, values.email, values.password)
             toast("Giriş Yapıldı")
             console.log(userbilgi.user)
+            localStorage.setItem('uid', userbilgi.user.uid);
+            localStorage.setItem('userEmail', userbilgi.user.email);
+
+
+
+
+
+            navigate("/Panel")
+
+
         } catch (error) {
             error.message === "Firebase: Error (auth/invalid-credential)." ? toast.error('Mailiniz veya şifreniz yanlış') : toast.error(error.message);
         }
