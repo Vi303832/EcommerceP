@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setemail, setuid, setAuth } from '../Slices/UserSlice';
 import Cart from './Cart';
+import { Routes, Route } from "react-router-dom"
 
 function User() {
     let navigate = useNavigate();
@@ -90,9 +91,13 @@ function User() {
 
                 </div>
                 {/*Right Side*/}
-                <div className='bg-ten w-[120vh] rounded-4xl max-h-screen'>
-                    <div className='h-[10%] flex justify-center items-center'>İYİ GÜNLER!</div>
-                    <Cart />
+                <div className='bg-ten w-[140vh] rounded-4xl max-h-screen'>
+
+                    <div className='p-15'>
+                        <Cart />
+
+                    </div>
+
                 </div>
 
             </div>

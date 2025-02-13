@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { collection, getDocs, query, where } from 'firebase/firestore'
 import { db } from '../Firebase'
 import { useNavigate } from 'react-router-dom'
-
+import { useDispatch, useSelector } from 'react-redux'
+import { increment } from 'firebase/firestore'
 
 function Products() {
 
@@ -12,6 +13,7 @@ function Products() {
     let [filter, setfilter] = useState(false)
     let [selectedcat, setselectedcat] = useState([])
     let [selectedsort, setselectedsort] = useState([])
+    let dispatch = useDispatch();
 
     let navigate = useNavigate();
 
@@ -134,6 +136,28 @@ function Products() {
         }
     };
 
+    let handleCart = (id, name, photourl, price) => {
+
+
+        let cart = JSON.parse(localStorage.getItem('Cart')) || {};
+
+        if (cart[id]) {
+            cart[id].quantity += 1;  // Örneğin, ürünün miktarını artırabiliriz
+        } else {
+            // Ürün sepette yoksa yeni bir ürün ekle
+            cart[id] = {
+                id,
+                name,
+                photourl,
+                price,
+                quantity: 1  // Yeni ürün eklerken, miktar 1 olarak başlar
+            };
+        }
+
+
+        localStorage.setItem('Cart', JSON.stringify(cart));
+
+    }
 
     return (
         <div>
@@ -303,7 +327,7 @@ function Products() {
                                         <div className='flex flex-col justify-center items-center py-5 gap-2'>
                                             <div className='text-xl'>{p.name}</div>
                                             <div>{p.price}TL</div>
-                                            <button className='cursor-pointer px-2 py-1 border-2 rounded-3xl '>Sepete Ekle</button>
+                                            <button className='cursor-pointer px-2 py-1 border-2 rounded-3xl hover:border-black hover:border-3 hover:text-black ' onClick={() => handleCart(p.id, p.name, p.images[0], p.price)}>Sepete Ekle</button>
 
                                         </div>
 

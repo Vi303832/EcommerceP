@@ -8,11 +8,13 @@ import { useState, useEffect } from 'react';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../Firebase';
 import { useRef } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 
 function Header() {
     let { uid, email, isAuth } = useSelector(s => s.userinfo)
+    let dispatch = useDispatch();
+    let { icon } = useSelector(s => s.general)
     let [input, setinput] = useState("");
     let navigate = useNavigate();
     let [open, setopen] = useState(false);
@@ -39,6 +41,7 @@ function Header() {
     {/*Eventhandler Olayı*/ }
 
     useEffect(() => {
+
         function handleClickOutside(event) {
             if (searchRef.current && !searchRef.current.contains(event.target)) {
                 if (searchIconRef.current && !searchIconRef.current.contains(event.target)) {
@@ -136,7 +139,7 @@ function Header() {
                             <div><FaUser onClick={() => handleNavigate("/Giriş")} /></div>
                     }
 
-                    <span className='flex items-center border-2  py-1 justify-between gap-1 rounded-3xl' ><span className='px-2 text-md flex gap-1 items-center'><IoCartSharp />Sepet</span><span className=' border-2 rounded-full text-center  px-2 mr-3 text-sm  '>0</span></span>
+                    <span className='flex items-center border-2  py-1 justify-between gap-1 rounded-3xl' ><span className='px-2 text-md flex gap-1 items-center'><IoCartSharp />Sepet</span><span className=' border-2 rounded-full text-center  px-2 mr-3 text-sm  '>{icon}</span></span>
 
                 </span>
 
