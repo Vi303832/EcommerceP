@@ -1,33 +1,24 @@
-
-
-
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    icon: 0,
-}
+    check: 0, // Başlangıç değeri
+    side: false,
+};
 
 export const generalSlice = createSlice({
-    name: 'userinfo',
+    name: 'general',
     initialState,
     reducers: {
-
-        increment: (state) => {
-
-            state.value += 1
+        // checker state'ini artıran reducer
+        checker: (state) => {
+            state.check += 1; // state.checker'ı artır
         },
-        decrement: (state) => {
-            state.value -= 1
-        },
-
-        seticon: (state, action) => {
-            state.icon += action.payload
+        setSide: (state, action) => {
+            state.side = action.payload
         },
 
     },
-})
+});
 
-
-export const { increment, decrement, seticon } = generalSlice.actions
-
-export default generalSlice.reducer
+export const { checker, setSide } = generalSlice.actions;
+export default generalSlice.reducer;

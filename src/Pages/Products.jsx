@@ -4,6 +4,7 @@ import { db } from '../Firebase'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { increment } from 'firebase/firestore'
+import { checker } from '../Slices/GeneralSlices'
 
 function Products() {
 
@@ -14,7 +15,7 @@ function Products() {
     let [selectedcat, setselectedcat] = useState([])
     let [selectedsort, setselectedsort] = useState([])
     let dispatch = useDispatch();
-
+    let { check } = useSelector(s => s.general)
     let navigate = useNavigate();
 
     useEffect(() => {
@@ -153,9 +154,10 @@ function Products() {
                 quantity: 1  // Yeni ürün eklerken, miktar 1 olarak başlar
             };
         }
-
-
+        dispatch(checker())
+        console.log(check)
         localStorage.setItem('Cart', JSON.stringify(cart));
+
 
     }
 

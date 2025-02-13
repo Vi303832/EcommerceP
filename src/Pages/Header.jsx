@@ -1,5 +1,6 @@
 import React from 'react'
 import Logo from "../Assets/Logo.jpg"
+import Sidecart from './Sidecart';
 import { FaSearch } from "react-icons/fa";
 import { IoCartSharp } from "react-icons/io5";
 import { FaUser } from "react-icons/fa";
@@ -9,21 +10,30 @@ import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../Firebase';
 import { useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { checker } from '../Slices/GeneralSlices';
+import { setSide } from '../Slices/GeneralSlices';
 
 
 function Header() {
-    let { uid, email, isAuth } = useSelector(s => s.userinfo)
     let dispatch = useDispatch();
-    let { icon } = useSelector(s => s.general)
+    let { uid, email, isAuth } = useSelector(s => s.userinfo)
+    let { check, side } = useSelector(s => s.general)
+    let [icon, seticon] = useState(0);
     let [input, setinput] = useState("");
     let navigate = useNavigate();
     let [open, setopen] = useState(false);
     let [products, setproducts] = useState([])
     let searchRef = useRef(null);
     let searchIconRef = useRef(null);
+    let cart = getCart();
 
     const handleNavigate = (path) => {
         navigate(path);
+    };
+
+    let handleSide = () => {
+        dispatch(setSide(!side)); // side state'ini tersine çevir
+        console.log(side); // Güncellenmiş değeri görmek için
     };
 
     let handleopen = () => {
@@ -37,6 +47,24 @@ function Header() {
 
 
     }
+    function getCart() {
+        return JSON.parse(localStorage.getItem('Cart')) || {};
+    }
+
+    useEffect(() => {
+        const cart = getCart();
+        let totalQuantity = 0;
+
+        // Sepetteki her bir ürünün quantity değerini topla
+        Object.values(cart).forEach((data) => {
+            totalQuantity += Number(data.quantity);
+        });
+
+        // Toplam quantity'yi güncelle
+        seticon(totalQuantity);
+    }, [check]);
+
+
 
     {/*Eventhandler Olayı*/ }
 
@@ -139,7 +167,7 @@ function Header() {
                             <div><FaUser onClick={() => handleNavigate("/Giriş")} /></div>
                     }
 
-                    <span className='flex items-center border-2  py-1 justify-between gap-1 rounded-3xl' ><span className='px-2 text-md flex gap-1 items-center'><IoCartSharp />Sepet</span><span className=' border-2 rounded-full text-center  px-2 mr-3 text-sm  '>{icon}</span></span>
+                    <span className='flex items-center border-2  py-1 justify-between gap-1 rounded-3xl' onClick={() => handleSide()} ><span className='px-2 text-md flex gap-1 items-center'><IoCartSharp />Sepet</span><span className=' border-2 rounded-full text-center  px-2 mr-3 text-sm  '>{icon}</span></span>
 
                 </span>
 
@@ -175,7 +203,6 @@ function Header() {
 
 
 
-
                 </div>
 
 
@@ -185,9 +212,12 @@ function Header() {
 
             </div>
 
-
+            {
+                side ?
+                    <Sidecart /> :
+                    ""
+            }
         </div>
-
 
     )
 }
