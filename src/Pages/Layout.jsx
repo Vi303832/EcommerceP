@@ -7,6 +7,7 @@ import Footer from "./Footer"
 function Layout({ children }) {
     return (
         <div className='bg-ten min-h-screen'>
+
             <Header />
 
 

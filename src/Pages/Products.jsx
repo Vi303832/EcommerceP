@@ -137,7 +137,7 @@ function Products() {
         }
     };
 
-    let handleCart = (id, name, photourl, price) => {
+    let handleCart = (id, name, photourl, price, sum) => {
 
 
         let cart = JSON.parse(localStorage.getItem('Cart')) || {};
@@ -151,6 +151,7 @@ function Products() {
                 name,
                 photourl,
                 price,
+                sum,
                 quantity: 1  // Yeni ürün eklerken, miktar 1 olarak başlar
             };
         }
@@ -324,12 +325,16 @@ function Products() {
                         {products && products.map(p => {
                             return (
                                 <>
+
                                     <div key={p.id} className='bg-ten w-[60vh] h-[70vh] rounded-2xl'>
                                         <div onClick={() => handleClick(p.id)} className='flex justify-center p-2 cursor-pointer '><img className="rounded-2xl w-[80%] h-[60%] shadow-2xl" src={p.images[0]} alt="foto" /></div>
                                         <div className='flex flex-col justify-center items-center py-5 gap-2'>
                                             <div className='text-xl'>{p.name}</div>
-                                            <div>{p.price}TL</div>
-                                            <button className='cursor-pointer px-2 py-1 border-2 rounded-3xl hover:border-black hover:border-3 hover:text-black ' onClick={() => handleCart(p.id, p.name, p.images[0], p.price)}>Sepete Ekle</button>
+
+                                            {p.discount ? <div className='flex gap-2'><div className='line-through'>{p.price}TL</div><div>{p.price - (p.price * p.discount / 100)}TL</div></div> : <div className=''>{p.price}TL</div>}
+
+
+                                            <button className='cursor-pointer px-2 py-1 border-2 rounded-3xl hover:border-black hover:border-3 hover:text-black ' onClick={() => handleCart(p.id, p.name, p.images[0], p.price, (p.price - (p.price * p.discount / 100)))}>Sepete Ekle</button>
 
                                         </div>
 

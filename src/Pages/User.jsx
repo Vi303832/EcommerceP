@@ -14,6 +14,8 @@ import Cart from './Cart';
 import { Routes, Route } from "react-router-dom"
 
 function User() {
+    let [oncart, setoncart] = useState(false)
+    let [onsipariş, setonsipariş] = useState(false)
     let navigate = useNavigate();
     let dispatch = useDispatch();
     let uid = localStorage.getItem('uid');
@@ -21,6 +23,8 @@ function User() {
     useEffect(() => {
         if (!uid) {
             toast.error("Lütfen Giriş Yapın");
+            navigate("/Giriş");
+            navigate("/Giriş");
             navigate("/Giriş");
         }
     }, [uid, navigate]);  // Adding `uid` and `navigate` as dependencies
@@ -45,7 +49,18 @@ function User() {
 
     }
 
+    let handlecart = () => {
 
+        setoncart(true)
+        setonsipariş(false)
+
+    }
+    let handlesipariş = () => {
+        setoncart(false)
+        setonsipariş(true)
+
+
+    }
 
     return (
         <div className='font-arial'>
@@ -60,7 +75,7 @@ function User() {
 
                     </div>
                     <div className='flex flex-col items-center justify-around  h-[75%] rounded-4xl text-2xl '>
-                        <span className='w-[100%] cursor-pointer'>
+                        <span className='w-[100%] cursor-pointer' onClick={() => handlecart()}>
                             <div className='px-15 py-4 flex gap-2'><IoCartSharp />Sepetim</div>
 
                             <hr className='opacity-15'></hr>
