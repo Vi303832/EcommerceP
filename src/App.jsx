@@ -11,6 +11,7 @@ import Other from './Pages/Other'
 import Auth from './Pages/Auth'
 import User from './Pages/User'
 import Register from './Pages/Register'
+import SetData from "./Pages/SetData"
 import { ToastContainer, toast } from 'react-toastify';
 
 import { Routes, Route } from "react-router-dom"
@@ -59,6 +60,7 @@ function App() {
       <Routes>
 
         <Route path='/AddData' element={<AddData />} />
+        <Route path='/SetData' element={<SetData />} />
 
         <Route path='/Panel' element={<Layout >
           <User />
