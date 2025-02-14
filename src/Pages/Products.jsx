@@ -87,7 +87,7 @@ function Products() {
 
 
     let getitems = async () => {
-
+        setfilter(false)
         try {
             let items = [];
             const docRef = collection(db, "Ürünler");

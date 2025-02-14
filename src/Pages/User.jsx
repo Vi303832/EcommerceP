@@ -12,21 +12,32 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setemail, setuid, setAuth } from '../Slices/UserSlice';
 import Cart from './Cart';
 import { Routes, Route } from "react-router-dom"
+import Admin from './Admin';
 
 function User() {
+    let [admin, setadmin] = useState(false)
     let [oncart, setoncart] = useState(false)
     let [onsipariş, setonsipariş] = useState(false)
     let navigate = useNavigate();
     let dispatch = useDispatch();
+
     let uid = localStorage.getItem('uid');
 
     useEffect(() => {
+        let cartd = JSON.parse(localStorage.getItem('Cart'))
         if (!uid) {
             toast.error("Lütfen Giriş Yapın");
             navigate("/Giriş");
             navigate("/Giriş");
             navigate("/Giriş");
         }
+        else if (cartd && Object.keys(cartd).length > 0) {
+            setoncart(true)
+        }
+
+
+
+
     }, [uid, navigate]);  // Adding `uid` and `navigate` as dependencies
 
 
@@ -48,16 +59,27 @@ function User() {
 
 
     }
-
+    let handleall = () => {
+        setoncart(false)
+        setonsipariş(false)
+        setadmin(false)
+    }
     let handlecart = () => {
 
         setoncart(true)
         setonsipariş(false)
-
+        setadmin(false)
     }
     let handlesipariş = () => {
         setoncart(false)
         setonsipariş(true)
+        setadmin(false)
+
+    }
+    let handleadmin = () => {
+        setoncart(false)
+        setonsipariş(false)
+        setadmin(true)
 
 
     }
@@ -69,7 +91,7 @@ function User() {
                 <div className='bg-ten w-[50vh] rounded-4xl max-h-screen'>
 
                     <div className='p-10 shadow-2xl rounded-4xl text-2xl'>
-                        <div className='flex gap-4 justify-center items-center'>
+                        <div className='flex gap-4 justify-center items-center cursor-pointer' onClick={() => handleall()}>
                             <RiUserSmileFill className='text-6xl' /><span>Hoşgeldin</span>
                         </div>
 
@@ -91,7 +113,7 @@ function User() {
                             <hr className='opacity-15'></hr>
                         </span>
 
-                        <span className={`w-[100%]  cursor-pointer ${uid == "KcOJ8SIpHgfJdQvUiIZgQLqgyaM2" ? "block" : "hidden"}`}><div className='px-15 py-4 flex gap-2 text-aclacivert     '><IoEyeOff />Panel</div><hr className='opacity-15'></hr></span>
+                        <span onClick={() => handleadmin()} className={`w-[100%]  cursor-pointer ${uid == "KcOJ8SIpHgfJdQvUiIZgQLqgyaM2" ? "block" : "hidden"}`}><div className='px-15 py-4 flex gap-2 text-aclacivert     '><IoEyeOff />Panel</div><hr className='opacity-15'></hr></span>
 
                         <span className='w-[100%] mb-5 cursor-pointer'>
 
@@ -109,8 +131,8 @@ function User() {
                 <div className='bg-ten w-[140vh] rounded-4xl max-h-screen'>
 
                     <div className='p-15'>
-                        <Cart />
-
+                        {oncart && <Cart />}
+                        {admin && <Admin />}
                     </div>
 
                 </div>

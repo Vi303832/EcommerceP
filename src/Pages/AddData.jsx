@@ -1,11 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import axios from "axios"
 import { useState } from 'react'
 import { db } from '../Firebase'
 import { addDoc, collection, updateDoc } from 'firebase/firestore'
+import { useNavigate } from 'react-router-dom'
 
 
 function AddData() {
+    let uid = localStorage.getItem('uid');
+    let navigate = useNavigate()
+    useEffect(() => {
+        if (uid != "KcOJ8SIpHgfJdQvUiIZgQLqgyaM2") {
+            navigate("/")
+            navigate("/")
+
+        }
+
+
+
+    }, [])
+
+
 
     const preset_key = 'Deneme'
     const cloud_name = 'dwruhrrkm'

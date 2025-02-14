@@ -162,7 +162,7 @@ function Header() {
                                 </span>
 
                                 <span className='flex items-center text-2xl'></span>{
-                                    isAuth ?
+                                    uid ?
                                         <div><FaUser onClick={() => handleNavigate("/Panel")} /></div> :
                                         <div><FaUser onClick={() => handleNavigate("/Giriş")} /></div>
                                 }

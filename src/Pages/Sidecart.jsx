@@ -54,7 +54,7 @@ function Sidecart() {
                                                     <img className='w-[50%]' src={pdata.photourl} />
                                                     <div className='flex flex-col justify-center gap-2 w-[100%]'>
                                                         <div className='text-2xl '>{pdata.name}</div>
-                                                        <div>Quantity:{pdata.quantity}</div>
+                                                        <div>Adet:{pdata.quantity}</div>
                                                         <div className='text-aclacivert'>{pdata.sum * pdata.quantity}TL</div>
 
                                                     </div>
@@ -71,7 +71,10 @@ function Sidecart() {
 
 
 
-                                <button className='w-[90%] border-2 rounded-3xl m-5 py-2 px-3 cursor-pointer hover:text-black hover:border-3' onClick={() => navigate("/Panel")}>Sepeti Onayla</button>
+                                <button className='w-[90%] border-2 rounded-3xl m-5 py-2 px-3 cursor-pointer hover:text-black hover:border-3' onClick={() => {
+                                    navigate("/Panel"),
+                                    dispatch(setSide(false))
+                                }}>Sepeti Onayla</button>
                             </div>
 
 
