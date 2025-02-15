@@ -13,7 +13,7 @@ function Hoodie() {
 
             let colref = collection(db, "Ürünler")
             const q = query(colref, where("dacategory", "==",
-                "Hoodie"),
+                "hoodie"),
 
             );
             const docsnap = await getDocs(q)

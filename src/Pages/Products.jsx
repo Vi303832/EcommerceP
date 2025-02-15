@@ -224,28 +224,28 @@ function Products() {
                                     </div>
                                     <div className="flex flex-col gap-2 items-center justify-center w-[20vh] h-[60%]">
                                         <div className="text-2xl">Modeller</div>
-                                        <label className={` py-2 w-[20vh] text-center rounded-3xl text-lg box-border border-2 transition ease-linear duration-1000 ${selectedcat.includes("Hoodie") ? ' border-4 border-kahve scale-105' : 'scale-100'}`} >
+                                        <label className={` py-2 w-[20vh] text-center rounded-3xl text-lg box-border border-2 transition ease-linear duration-1000 ${selectedcat.includes("hoodie") ? ' border-4 border-kahve scale-105' : 'scale-100'}`} >
                                             <input
                                                 type="checkbox"
-                                                value="Hoodie"
+                                                value="hoodie"
                                                 className='hidden'
                                                 onClick={(e) => addclicked(e)}
                                             />
                                             Hoodie
                                         </label>
-                                        <label className={`transition ease-linear duration-1000 py-2 w-[20vh] text-center rounded-3xl text-lg box-border border-2 ${selectedcat.includes("Sweatshirt") ? ' border-4 border-kahve scale-105' : 'scale-100'}`} >
+                                        <label className={`transition ease-linear duration-1000 py-2 w-[20vh] text-center rounded-3xl text-lg box-border border-2 ${selectedcat.includes("sweatshirt") ? ' border-4 border-kahve scale-105' : 'scale-100'}`} >
                                             <input
                                                 type="checkbox"
-                                                value="Sweatshirt"
+                                                value="sweatshirt"
                                                 onClick={(e) => addclicked(e)}
                                                 className='hidden'
                                             />
                                             Sweatshirt
                                         </label>
-                                        <label className={`transition ease-linear duration-1000 py-2 w-[20vh] text-center rounded-3xl text-lg box-border border-2 ${selectedcat.includes("Tshirt") ? ' border-4 border-kahve scale-105' : 'scale-100'}`} >
+                                        <label className={`transition ease-linear duration-1000 py-2 w-[20vh] text-center rounded-3xl text-lg box-border border-2 ${selectedcat.includes("tshirt") ? ' border-4 border-kahve scale-105' : 'scale-100'}`} >
                                             <input
                                                 type="checkbox"
-                                                value="Tshirt"
+                                                value="tshirt"
                                                 className='hidden'
                                                 onClick={(e) => addclicked(e)}
                                             />
@@ -256,46 +256,46 @@ function Products() {
                                     {/* Color Selection */}
                                     <div className="flex flex-col items-center justify-center  h-[60%] gap-2 ">
                                         <div className="text-2xl">Renk</div>
-                                        <label className={`transition ease-linear duration-1000 py-2 w-[20vh] text-center rounded-3xl text-lg box-border border-2 ${selectedcat.includes("Saks Mavisi") ? ' border-4 border-kahve scale-105' : 'scale-100'}`} >
+                                        <label className={`transition ease-linear duration-1000 py-2 w-[20vh] text-center rounded-3xl text-lg box-border border-2 ${selectedcat.includes("saksmavisi") ? ' border-4 border-kahve scale-105' : 'scale-100'}`} >
                                             <input
                                                 type="checkbox"
-                                                value="Saks Mavisi"
+                                                value="saksmavisi"
                                                 className='hidden'
                                                 onClick={(e) => addclicked(e)}
                                             />
                                             Saks Mavisi
                                         </label>
-                                        <label className={`py-2 w-[20vh] text-center rounded-3xl transition ease-linear duration-1000 text-lg box-border border-2 ${selectedcat.includes("Kahverengi") ? ' border-4 border-kahve scale-105' : 'scale-100'}`} >
+                                        <label className={`py-2 w-[20vh] text-center rounded-3xl transition ease-linear duration-1000 text-lg box-border border-2 ${selectedcat.includes("kahverengi") ? ' border-4 border-kahve scale-105' : 'scale-100'}`} >
                                             <input
                                                 type="checkbox"
-                                                value="Kahverengi"
+                                                value="kahverengi"
                                                 className='hidden'
                                                 onClick={(e) => addclicked(e)}
                                             />
                                             Kahverengi
                                         </label>
-                                        <label className={`transition ease-linear duration-1000 py-2 w-[20vh] text-center rounded-3xl text-lg box-border border-2 ${selectedcat.includes("Gri") ? ' border-4 border-kahve scale-105' : 'scale-100'}`} >
+                                        <label className={`transition ease-linear duration-1000 py-2 w-[20vh] text-center rounded-3xl text-lg box-border border-2 ${selectedcat.includes("gri") ? ' border-4 border-kahve scale-105' : 'scale-100'}`} >
                                             <input
                                                 type="checkbox"
-                                                value="Gri"
+                                                value="gri"
                                                 className='hidden'
                                                 onClick={(e) => addclicked(e)}
                                             />
                                             Gri
                                         </label>
-                                        <label className={`py-2 w-[20vh] text-center transition ease-linear duration-1000 rounded-3xl text-lg box-border border-2 ${selectedcat.includes("Ekru") ? ' border-4 border-kahve scale-105' : 'scale-100'}`} >
+                                        <label className={`py-2 w-[20vh] text-center transition ease-linear duration-1000 rounded-3xl text-lg box-border border-2 ${selectedcat.includes("ekru") ? ' border-4 border-kahve scale-105' : 'scale-100'}`} >
                                             <input
                                                 type="checkbox"
-                                                value="Ekru"
+                                                value="ekru"
                                                 className='hidden'
                                                 onClick={(e) => addclicked(e)}
                                             />
                                             Ekru
                                         </label>
-                                        <label className={`transition ease-linear duration-1000 py-2 w-[20vh] text-center rounded-3xl text-lg box-border border-2 ${selectedcat.includes("Yeşil") ? ' border-4 border-kahve scale-105' : 'scale-100'}`} >
+                                        <label className={`transition ease-linear duration-1000 py-2 w-[20vh] text-center rounded-3xl text-lg box-border border-2 ${selectedcat.includes("yeşil") ? ' border-4 border-kahve scale-105' : 'scale-100'}`} >
                                             <input
                                                 type="checkbox"
-                                                value="Yeşil"
+                                                value="yeşil"
                                                 className='hidden'
                                                 onClick={(e) => addclicked(e)}
                                             />

@@ -14,7 +14,7 @@ function Tshirt() {
 
             let colref = collection(db, "Ürünler")
             const q = query(colref, where("dacategory", "==",
-                "Tshirt"),
+                "tshirt"),
 
             );
             const docsnap = await getDocs(q)
