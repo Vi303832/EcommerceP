@@ -55,7 +55,7 @@ function Register() {
         <div className='font-arial text-bordo bg-kahve'>
             <div className='w-[100%] flex'>
                 <div className='w-[50%] '>
-                    <img src={Loginimg} className='h-[110vh] w-[100%] cover'></img>
+                    <img src={Loginimg} className='h-[115vh] w-[100%] cover'></img>
 
 
 

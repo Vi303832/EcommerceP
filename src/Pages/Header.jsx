@@ -146,8 +146,10 @@ function Header() {
 
                     <div className='flex gap-15 cursor-pointer items-center justify-around text-xl'>
                         <div onClick={() => handleNavigate("/Ürünler")}>Ürünler</div>
-                        <div>About Us</div>
-                        <div>Contact</div>
+                        <a href="#about" className="cursor-pointer">Hakkımızda</a>
+
+                        <a href="#iletişim" className="cursor-pointer">İletişim</a>
+
 
                     </div>
 

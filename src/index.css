@@ -13,3 +13,6 @@
 --color-beyaz:#fdf3e9;
 }
 
+html {
+  scroll-behavior: smooth;
+}
