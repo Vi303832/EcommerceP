@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import axios from "axios";
 import { useState } from 'react';
 import { db } from '../Firebase';
-import { updateDoc, getDoc, doc } from 'firebase/firestore';
+import { updateDoc, getDoc, doc, setDoc } from 'firebase/firestore';
 import { useNavigate, useParams } from 'react-router-dom';
 
 function UpdateData() {
@@ -26,7 +26,7 @@ function UpdateData() {
         if (uid !== "KcOJ8SIpHgfJdQvUiIZgQLqgyaM2") {
             navigate("/");
         }
-
+        setcategorys([])
         let fetchh = async () => {
             try {
                 let docref = doc(db, "Ürünler", Id);
@@ -106,7 +106,7 @@ function UpdateData() {
                 colors,
             };
 
-            await updateDoc(docref, formData);
+            await setDoc(docref, formData);
 
             console.log("Belge güncellendi, id:", Id);
             window.location.reload();
@@ -217,10 +217,10 @@ function UpdateData() {
                 <div>
                     <select onChange={handlecategory} className='border-2'>
                         <option value=""></option>
-                        <option value="Tshirt">Tshirt</option>
-                        <option value="Hoodie">Hoodie</option>
-                        <option value="Sweatshirt">Sweatshirt</option>
-                        <option value="Diğer">Diğer</option>
+                        <option value="tshirt">Tshirt</option>
+                        <option value="hoodie">Hoodie</option>
+                        <option value="sweatshirt">Sweatshirt</option>
+                        <option value="diğer">Diğer</option>
                     </select>
                 </div>
 

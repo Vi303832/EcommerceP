@@ -102,9 +102,9 @@ function Header() {
                 const docRef = collection(db, "Ürünler");
 
                 // Kategori sorguları
-                const categories = ["Gri", "Ekru", "Yeşil", "Sweatshirt", "Hoodie", "Kahverengi", "Saks Mavisi", "Tshirt", "Other"];
+                const categories = ["gri", "ekru", "yeşil", "sweatshirt", "hoodie", "kahverengi", "saksmavisi", "tshirt", "other"];
                 const queries = categories
-                    .filter(category => category.startsWith(input)) // Girişle başlayan kategorileri filtrele
+                    .filter(category => category.startsWith(input.trim())) // Girişle başlayan kategorileri filtrele
                     .map(category => query(docRef, where("categorys", "array-contains", category)));
 
                 // Tüm sorguları çalıştır ve sonuçları birleştir
@@ -141,14 +141,14 @@ function Header() {
         <>
 
             <div className='h-[100%]'>
-                <div className=' h-[15vh] shadow-2xl grid grid-cols-3 grid-rows-1 px-5 text-bordo font-arial w-[100%]'>
+                <div className=' h-[15vh] shadow-xl grid grid-cols-3 grid-rows-1 px-5 text-bordo font-arial w-[100%]'>
                     <span className='flex justify-start items-center' ><img onClick={() => handleNavigate("/")} className="size-[10vh] cursor-pointer" src={Logo} /></span>
 
                     <div className='flex gap-15 cursor-pointer items-center justify-around text-xl'>
                         <div onClick={() => handleNavigate("/Ürünler")}>Ürünler</div>
-                        <a href="#about" className="cursor-pointer">Hakkımızda</a>
+                        <a onClick={() => handleNavigate("/")} href="#about" className="cursor-pointer">Hakkımızda</a>
 
-                        <a href="#iletişim" className="cursor-pointer">İletişim</a>
+                        <a onClick={() => handleNavigate("/")} href="#iletişim" className="cursor-pointer">İletişim</a>
 
 
                     </div>

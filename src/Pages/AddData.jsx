@@ -221,10 +221,10 @@ function AddData() {
 
                     <select onChange={handlecategory} className='border-2'>
                         <option value=""></option>
-                        <option value="Tshirt">Tshirt</option>
-                        <option value="Hoodie">Hoodie</option>
-                        <option value="Sweatshirt">Sweatshirt</option>
-                        <option value="Diğer">Diğer</option>
+                        <option value="tshirt">Tshirt</option>
+                        <option value="hoodie">Hoodie</option>
+                        <option value="sweatshirt">Sweatshirt</option>
+                        <option value="diğer">Diğer</option>
 
 
                     </select>
