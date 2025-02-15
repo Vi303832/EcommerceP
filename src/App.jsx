@@ -12,12 +12,14 @@ import Auth from './Pages/Auth'
 import User from './Pages/User'
 import Register from './Pages/Register'
 import SetData from "./Pages/SetData"
+import UpdateData from './Pages/UpdateData'
 import { ToastContainer, toast } from 'react-toastify';
 
 import { Routes, Route } from "react-router-dom"
 import { Bounce } from 'react-toastify'
 import { useDispatch } from 'react-redux'
 import { setAuth, setemail, setuid } from './Slices/UserSlice'
+import Deneme from './Pages/Deneme'
 
 
 
@@ -58,6 +60,8 @@ function App() {
         transition={Bounce}
       />
       <Routes>
+        <Route path='/Deneme' element={<Deneme />} />
+        <Route path='/Update/:Id' element={<UpdateData />} />
 
         <Route path='/AddData' element={<AddData />} />
         <Route path='/SetData' element={<SetData />} />
