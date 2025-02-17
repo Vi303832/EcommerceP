@@ -86,17 +86,17 @@ function User() {
 
     return (
         <div className='font-arial'>
-            <div className='bg-kahve p-28 min-h-screen flex gap-15 '>
+            <div className='bg-kahve p-28 min-h-screen flex gap-15 max-md:flex-col '>
                 {/*Left Side*/}
-                <div className='bg-ten w-[50vh] rounded-4xl max-h-screen'>
+                <div className='bg-ten w-[50vh] max-md:min-w-[100%] rounded-4xl max-h-screen max-sm:right-12 max-sm:relative  '>
 
-                    <div className='p-10 shadow-2xl rounded-4xl text-2xl'>
+                    <div className='p-10 shadow-2xl rounded-4xl text-2xl '>
                         <div className='flex gap-4 justify-center items-center cursor-pointer' onClick={() => handleall()}>
                             <RiUserSmileFill className='text-6xl' /><span>Hoşgeldin</span>
                         </div>
 
                     </div>
-                    <div className='flex flex-col items-center justify-around  h-[75%] rounded-4xl text-2xl '>
+                    <div className='flex flex-col items-center justify-around  h-[75%] rounded-4xl text-2xl  '>
                         <span className='w-[100%] cursor-pointer' onClick={() => handlecart()}>
                             <div className='px-15 py-4 flex gap-2'><IoCartSharp />Sepetim</div>
 
@@ -128,9 +128,9 @@ function User() {
 
                 </div>
                 {/*Right Side*/}
-                <div className='bg-ten w-[140vh] rounded-4xl max-h-screen'>
+                <div className='bg-ten w-[140vh] max-md:w-[140%] max-md:relative max-md:right-20 rounded-4xl max-h-screen   '>
 
-                    <div className='p-15'>
+                    <div className='p-15 min-h-screen '>
                         {oncart && <Cart />}
                         {admin && <Admin />}
                     </div>

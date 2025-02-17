@@ -66,10 +66,10 @@ function Cart() {
 
 
     return (
-        <div className='max-h-screen h-[50vh] w-[100%] flex gap-10'>
+        <div className='  w-[100%] flex max-sm:flex-col max-sm:items-center gap-3 max-sm:h-[200%]'>
             {/*LeftSide*/}
-            <div className='w-[70%] rounded-3xl h-[100%]border-2 '>
-                <div className='h-[8vh]  flex justify-center items-center'><span>Sepetiniz</span></div>
+            <div className='w-[70%] rounded-3xl h-[100%]border-2  max-sm:w-[120%]'>
+                <div className='h-[8vh] max-sm:min flex justify-center items-center'><span>Sepetiniz</span></div>
                 <hr></hr>
                 <div className=' h-[80%]'>
                     <div className='px-10 py-5   h-[100%] w-[100%] overflow-scroll'>
@@ -114,17 +114,17 @@ function Cart() {
                 </div>
             </div>
             {/*Rightside*/}
-            <div className='w-[30vh]'>
+            <div className='w-[30vh]  max-sm:flex max-sm:flex-col max-sm:justify-start  max-sm:items-center max-sm:h-[200%]'>
                 <div className='h-[8vh]  flex justify-center items-center'><span>Sepetiniz</span></div>
                 <hr></hr>
-                <div className='flex justify-center items-center flex-col h-[35vh] gap-8'>
-                    <div>Tutar:{toplam - 30}TL</div>
+                <div className='flex justify-center items-center flex-col h-[35vh] max-sm:flex-row  max-sm:bg-ten max-sm:h-2 max-sm:w-max gap-8'>
+                    <div className='max-sm:hidden'>Tutar:{toplam - 30}TL</div>
                     <div>Kargo ücreti:30TL</div>
-                    <div className='text-xl'>
+                    <div className='text-xl '>
                         Toplam:{toplam}TL
                     </div>
-
                 </div>
+
 
                 <a href='https://www.shopier.com/s/store/Kufart&sid=cjR3bzAweFc2NG15U0xxdTBfLTFfIF8g' className='flex justify-center items-center p-2'><button className='cursor-pointer bg-bordo text-beyaz px-2 py-1 rounded-3xl' >Checkout</button></a>
             </div>

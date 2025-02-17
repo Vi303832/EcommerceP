@@ -12,6 +12,7 @@ import { useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { checker } from '../Slices/GeneralSlices';
 import { setSide } from '../Slices/GeneralSlices';
+import { FaBars } from "react-icons/fa";
 
 
 function Header() {
@@ -26,7 +27,7 @@ function Header() {
     let searchRef = useRef(null);
     let searchIconRef = useRef(null);
     let cart = getCart();
-
+    let [toggle, settoggle] = useState(false);
     const handleNavigate = (path) => {
         navigate(path);
     };
@@ -143,18 +144,19 @@ function Header() {
     return (
         <>
 
-            <div className='h-[100%]'>
+            <div className='h-[100%] '>
                 <div className=' h-[15vh] shadow-xl grid grid-cols-3 grid-rows-1 px-5 text-bordo font-arial w-[100%]'>
                     <span className='flex justify-start items-center' ><img onClick={() => handleNavigate("/")} className="size-[10vh] cursor-pointer" src={Logo} /></span>
 
-                    <div className='flex gap-15 cursor-pointer items-center justify-around text-xl'>
+                    <div className='flex gap-15 cursor-pointer items-center justify-around text-xl max-md:hidden'>
                         <div onClick={() => handleNavigate("/Ürünler")}>Ürünler</div>
                         <a onClick={() => handleNavigate("/")} href="#about" className="cursor-pointer">Hakkımızda</a>
 
-                        <a onClick={() => handleNavigate("/")} href="#iletişim" className="cursor-pointer">İletişim</a>
+                        <a onClick={() => handleNavigate("/")} href="#iletişim" className="cursor-pointer max-lg:hidden">İletişim</a>
 
 
                     </div>
+                    <div className='text-2xl hidden justify-center mr-10  items-center max-md:flex  '><FaBars className="cursor-pointer" onClick={() => settoggle(!toggle)} /></div>
 
                     {
                         side ?
@@ -229,7 +231,14 @@ function Header() {
 
 
             </div>
+            <div className={` gap-15 cursor-pointer hidden mr-10 items-center text-bordo justify-around text-xl max-md:flex-col max-md:flex relative  ${toggle ? "" : "h-0 invisible "}`}>
+                <div className="pt-5" onClick={() => handleNavigate("/Ürünler")}>Ürünler</div>
+                <a onClick={() => handleNavigate("/")} href="#about" className="cursor-pointer">Hakkımızda</a>
 
+                <a onClick={() => handleNavigate("/")} href="#iletişim" className="cursor-pointer">İletişim</a>
+
+
+            </div>
         </>
 
     )

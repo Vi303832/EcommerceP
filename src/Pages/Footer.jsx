@@ -4,7 +4,7 @@ import { FaInstagram } from "react-icons/fa";
 
 function Footer() {
     return (
-        <div></div>
+        <div className='hidden'></div>
     )
 }
 

@@ -165,7 +165,7 @@ function Products() {
     return (
         <div>
             <div className='min-h-screen w-[100%] font-arial text-bordo '>
-                <div className='flex justify-between'>
+                <div className='flex justify-between max-md:justify-start max-sm:items-start max-md:flex-col'>
                     <div className='p-15 cursor-pointer'>
                         <span onClick={Displayer} className='flex gap-2 items-center justfiy-center'><span className='text-5xl'>Bütün Ürünler</span><span className={`text-5xl cursor-pointer transition transform ease-linear  duration-200 ${plus === "-" ? 'rotate-180' : 'rotate-0'}`}>{plus}</span></span>
                         <div
@@ -180,7 +180,7 @@ function Products() {
 
 
                     </div>
-                    <div className='p-15 cursor-pointer h-[100%] '>
+                    <div className='p-15 cursor-pointer h-[100%]  '>
                         <span className={'flex gap-2 items-center  justify-end p-2  '}>{<button onClick={() => handleclear()}
                             className={` text-xl  rounded-2xl border-3 transition-all ease-linear duration-500 px-2 py-1   cursor-pointer relative p-0 ${filter
                                 ? "opacity-100 left-0  "
@@ -318,7 +318,7 @@ function Products() {
                 <div className=' bg-kahve transition-all duration-1000 ease-in-out mx-10 flex flex-col items-center justify-center py-10 rounded-3xl'>
 
 
-                    <div className='grid grid-cols-3 mx-20 gap-x-10 gap-y-10 grid-rows-3 '>
+                    <div className='grid grid-cols-3 mx-20 gap-x-10 gap-y-10 grid-rows-3 max-md:flex max-md:flex-wrap'>
 
 
 
