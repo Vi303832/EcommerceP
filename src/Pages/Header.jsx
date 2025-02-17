@@ -104,9 +104,12 @@ function Header() {
                 // Kategori sorguları
                 const categories = ["gri", "ekru", "yeşil", "sweatshirt", "hoodie", "kahverengi", "saksmavisi", "tshirt", "other"];
                 const queries = categories
-                    .filter(category => category.startsWith(input.trim())) // Girişle başlayan kategorileri filtrele
+                    .filter(category => {
+                        const cleanedInput = input.trim().toLowerCase().replace(/\s+/g, ''); // Remove spaces from input
+                        const cleanedCategory = category.trim().toLowerCase().replace(/\s+/g, ''); // Remove spaces from category
+                        return cleanedCategory.startsWith(cleanedInput); // Compare without spaces
+                    })
                     .map(category => query(docRef, where("categorys", "array-contains", category)));
-
                 // Tüm sorguları çalıştır ve sonuçları birleştir
                 const snapshots = await Promise.all(queries.map(q => getDocs(q)));
                 const mergedResults = new Map();

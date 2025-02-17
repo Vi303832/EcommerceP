@@ -26,7 +26,7 @@ function UpdateData() {
         if (uid !== "KcOJ8SIpHgfJdQvUiIZgQLqgyaM2") {
             navigate("/");
         }
-        setcategorys([])
+
         let fetchh = async () => {
             try {
                 let docref = doc(db, "Ürünler", Id);
@@ -45,7 +45,7 @@ function UpdateData() {
                     setColors(fetchedData.colors || []);
                     setSizes(fetchedData.sizes || { S: 0, M: 0, L: 0, XL: 0, XXL: 0 });
                     setdacategory(fetchedData.dacategory || "");
-                    setcategorys(fetchedData.categorys || []);
+                    setcategorys([...fetchedData.colors])
                 } else {
                     console.log("Document not found!");
                     setdata(null);
@@ -79,6 +79,7 @@ function UpdateData() {
     };
 
     const handlecategory = (event) => {
+
         setcategorys([...categorys, event.target.value]);
         setdacategory(event.target.value);
         console.log(categorys);

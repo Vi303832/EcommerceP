@@ -6,7 +6,7 @@ import { FaChevronDown } from "react-icons/fa";
 import { toast } from 'react-toastify';
 
 function Cart() {
-
+    let [toplam, settoplam] = useState(0)
     let { side } = useSelector(s => s.general)
     let dispatch = useDispatch();
 
@@ -21,6 +21,11 @@ function Cart() {
     useEffect(() => {
         let cart = getCart();
         setdata(cart)
+
+
+        let totalSum = Object.values(cart).reduce((acc, item) => acc + (item.sum * item.quantity), 0);
+        settoplam(totalSum);
+
     }, [])
 
     let handledelete = (Id) => {
@@ -110,10 +115,18 @@ function Cart() {
             </div>
             {/*Rightside*/}
             <div className='w-[30vh]'>
-                <div className='h-[8vh] bg-sky-300 flex justify-center items-center'><span>Sepetiniz</span></div>
+                <div className='h-[8vh]  flex justify-center items-center'><span>Sepetiniz</span></div>
                 <hr></hr>
+                <div className='flex justify-center items-center flex-col h-[35vh] gap-8'>
+                    <div>Tutar:{toplam - 30}TL</div>
+                    <div>Kargo ücreti:30TL</div>
+                    <div className='text-xl'>
+                        Toplam:{toplam}TL
+                    </div>
 
+                </div>
 
+                <a href='https://www.shopier.com/s/store/Kufart&sid=cjR3bzAweFc2NG15U0xxdTBfLTFfIF8g' className='flex justify-center items-center p-2'><button className='cursor-pointer bg-bordo text-beyaz px-2 py-1 rounded-3xl' >Checkout</button></a>
             </div>
         </div>
     )

@@ -106,7 +106,7 @@ function User() {
 
                         <span className='w-[100%] cursor-pointer'>
 
-                            <div className='px-15 py-4 flex gap-2'><FaBasketShopping />Siparişlerim</div>
+                            <a href='https://www.shopier.com/s/store/Kufart&sid=cjR3bzAweFc2NG15U0xxdTBfLTFfIF8g' className='px-15 py-4 flex gap-2' ><FaBasketShopping />Siparişlerim</a>
 
 
 
