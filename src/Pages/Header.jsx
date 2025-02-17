@@ -160,7 +160,7 @@ function Header() {
 
                     {
                         side ?
-                            <div className='absolute flex justify-end w-[70%] '><Sidecart /></div> : <div className='flex justify-end items-center'><span className='flex gap-3 items-center justify-end text-xl cursor-pointer '>
+                            <div className='absolute flex justify-end w-[70%] max-sm:w-[30%] max-lg:w-[50%] max-md:w-[40%] '><Sidecart /></div> : <div className='flex justify-end items-center'><span className='flex gap-3 items-center justify-end text-xl cursor-pointer '>
 
                                 <span ref={searchIconRef} className='flex items-center text-2xl'>
                                     <FaSearch onClick={() => handleopen()} />
@@ -194,7 +194,7 @@ function Header() {
                     {<input className={`shadow-sm box-border ease-in-out px-2 transition-all duration-1000 focus:outline-none ${open ? "py-1  block w-[100%] bg-[#f7f6ec] h-16 " : "py-0 w-[100%] h-0  "}`} placeholder='İstediğiniz ürünü aratın , kolayca bulun!' type='text' value={input} onChange={(e) => handleinput(e)} />}
                     <div className={`absolute   bg-[#deddd5] transition-all duration-500  w-[70%] mx-[15%] ${input && open ? " h-screen z-10 " : " h-0 opacity-0 "}`}>
 
-                        <div className={`absolute p-16 grid grid-cols-3 mx-10 gap-x-10 gap-y-10 grid-rows-2 w-[100%]  ${input ? "block h-screen" : " h-0 opacity-0 hidden"}`}>
+                        <div className={`absolute p-16 grid grid-cols-3 mx-10 gap-x-10 gap-y-10 grid-rows-2 max-sm:flex max-sm:flex-col w-[100%]  ${input ? "block h-screen" : " h-0 opacity-0 hidden"}`}>
 
                             {products && products.map(p => {
                                 return (

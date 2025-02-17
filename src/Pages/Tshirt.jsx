@@ -41,9 +41,9 @@ function Tshirt() {
 
     return (
 
-        <div className=' bg-kahve transition-all duration-1000 ease-in-out mx-10 flex justify-center py-10 my-10 rounded-3xl'>
+        <div className=' bg-kahve transition-all duration-1000 ease-in-out mx-10 flex justify-center  max-md:m-0   py-10 my-10 rounded-3xl'>
 
-            <div className='grid grid-cols-3 mx-20 gap-x-10 gap-y-10 grid-rows-3 '>
+            <div className='grid grid-cols-3 mx-20 gap-x-10 gap-y-10 grid-rows-3 max-md:flex max-md:flex-col '>
 
 
 

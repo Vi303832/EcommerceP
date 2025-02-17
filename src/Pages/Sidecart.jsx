@@ -37,7 +37,7 @@ function Sidecart() {
 
                 <div className=''>
 
-                    <div className={`min-h-screen bg-ten transition duration-300 ease-linear z-10 fixed  w-[30%] ${side ? "w-[30%]" : "w-0 "} `}>
+                    <div className={`min-h-screen bg-ten transition duration-300 ease-linear z-10 fixed max-md:w-[70%] max-lg:w-[50%]  ${side ? "w-[30%]" : "w-0 "} `}>
                         <div className='p-10 h-screen overflow-scroll'>
                             <div className='flex justify-between items-center '>
                                 <div className='text-3xl'>Sepetiniz</div>
@@ -73,7 +73,7 @@ function Sidecart() {
 
                                 <button className='w-[90%] border-2 rounded-3xl m-5 py-2 px-3 cursor-pointer hover:text-black hover:border-3' onClick={() => {
                                     navigate("/Panel"),
-                                    dispatch(setSide(false))
+                                        dispatch(setSide(false))
                                 }}>Sepeti Onayla</button>
                             </div>
 

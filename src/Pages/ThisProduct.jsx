@@ -69,10 +69,10 @@ function ThisProduct() {
     }
 
     return (
-        <div className='flex flex-row w-[100%] pb-20'>
+        <div className='flex flex-row w-[100%] max-sm:flex-col max-sm:justify-center max-sm:items-center pb-20'>
 
             {/* Left Side */}
-            <div className='w-[50%] pt-1'>
+            <div className='w-[50%] max-sm:w-[100%] pt-1'>
                 <div className='flex overflow-hidden relative'>
                     <img
                         src={p.images[currentIndex]}
@@ -103,7 +103,7 @@ function ThisProduct() {
             </div>
 
             {/* Right Side */}
-            <div className='w-[50%] flex flex-col items-center p-10 gap-10 font-arial'>
+            <div className='w-[50%] max-sm:w-[70%] flex flex-col items-center p-10 gap-10 font-arial'>
                 <div className='text-3xl justify-center items-center flex flex-col'>{p.name}<hr className='my-5 w-[200%]' /></div>
 
                 <div className='text-xl'>{p.price}TL</div>

@@ -29,7 +29,7 @@ function Home() {
             <>
                 <div className='text-bordo font-arial '>
                     <div className='flex flex-col justify-center items-center gap-6 py-15'>
-                        <h1 className='text-4xl'>Estetik ve Uyumun Buluşma Noktası</h1>
+                        <h1 className='text-4xl  text-center'>Estetik ve Uyumun Buluşma Noktası</h1>
                         <h2>KUF ile Günlük Stilinizi Yenileyin</h2>
                     </div>
                 </div>
@@ -86,13 +86,11 @@ function Home() {
                     }}
                 >
                     <div className='w-[90%] min-h-screen font-arial '>
-                        <div className='px-30 pt-100 pb-40'>
+                        <div className='px-30 max-md:px-10 pt-100 pb-40'>
                             <div id="about" className='text-[#fdf3e9] text-5xl py-20'>Hakkımızda</div>
                             <div className='w-[100%] flex gap-10 max-md:flex-col'>
                                 <div className='w-[60%] max-md:w-[100%]'>
-                                    <img src={hakkımızda} />
-
-
+                                    <img src={hakkımızda} className='max-md:w-[130%]' />
                                 </div>
                                 <div className='w-[30%] max-md:w-[60vh]  text-[#fdf3e9] items-center justify-center '>
                                     <div className='py-20 text-2xl max-md:h-[50vh] max-md:text-lg  '>KUF olarak, tasarımda rahatlık ve şıklığı bir arada sunma misyonuyla yola çıktık. Günlük yaşamın hızına ayak uydururken estetik ve konforu birleştirerek, her bireyin kendini özgürce ifade edebileceği parçalar yaratıyoruz. Amacımız, sadece giysi değil, aynı zamanda stil ve kişiliğinizi yansıtan anlamlı tasarımlar üretmektir.
@@ -146,7 +144,7 @@ function Home() {
                                             </div>
                                             <div>
                                                 <div className='text-2xl'>Mesajınız</div>
-                                                <textarea className='w-[120%] h-[120%] border-b-2 resize-none'></textarea>
+                                                <textarea className='w-[100%] h-[120%] border-b-2 resize-none'></textarea>
                                             </div>
                                             <button className='my-10 bg-bordo rounded-3xl px-3 py-1 text-beyaz box-border '>Gönder</button>
                                         </div>

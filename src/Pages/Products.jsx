@@ -86,6 +86,7 @@ function Products() {
     }
 
 
+
     let getitems = async () => {
         setfilter(false)
         try {
@@ -180,8 +181,8 @@ function Products() {
 
 
                     </div>
-                    <div className='p-15 cursor-pointer h-[100%]  '>
-                        <span className={'flex gap-2 items-center  justify-end p-2  '}>{<button onClick={() => handleclear()}
+                    <div className='p-15 cursor-pointer h-[100%]    '>
+                        <span className={'flex gap-2 items-center  max-sm:justify-start p-2  '}>{<button onClick={() => handleclear()}
                             className={` text-xl  rounded-2xl border-3 transition-all ease-linear duration-500 px-2 py-1   cursor-pointer relative p-0 ${filter
                                 ? "opacity-100 left-0  "
                                 : "opacity-0  left-3 "
@@ -190,15 +191,15 @@ function Products() {
                             Clear
                         </button>
 
-                        }<span className='text-xl px-3 py-1 rounded-2xl border-3' onClick={handlefilter}>Filter</span></span>
+                        }<span className='text-xl px-3 py-1 rounded-2xl border-3 ' onClick={handlefilter}>Filter</span></span>
                         <div
-                            className={`transition-all duration-1000 ease-in-out overflow-hidden bg-white rounded-3xl ${filter ? "max-h-[500px] py-8 opacity-100 px-32 " : "max-h-0 p-0 opacity-0"
+                            className={`transition-all duration-1000 ease-in-out overflow-hidden bg-white rounded-3xl ${filter ? "max-h-[500px] max-sm:max-h-[800px] py-8 opacity-100 px-32 " : "max-h-0 p-0 opacity-0"
                                 }`}
                         >
                             <div className='h-[100%] w-[100%]'>
-                                <div className="flex flex-row gap-10">
+                                <div className="flex flex-row max-sm:flex-col gap-2  ">
                                     {/* Hoodie Selection */}
-                                    <div className="flex flex-col gap-2 items-center justify-center w-[20vh] h-[60%]">
+                                    <div className="flex flex-col gap-2 items-center justify-center max-sm: w-[20vh] h-[60%]">
                                         <div className="text-2xl">Sırala</div>
                                         <label className={` py-2 w-[20vh] text-center rounded-3xl text-lg box-border border-2 transition ease-linear duration-1000 ${selectedsort.includes("Artan") ? ' border-4 border-kahve scale-105' : 'scale-100'}`} >
                                             <input
@@ -254,6 +255,7 @@ function Products() {
                                     </div>
 
                                     {/* Color Selection */}
+
                                     <div className="flex flex-col items-center justify-center  h-[60%] gap-2 ">
                                         <div className="text-2xl">Renk</div>
                                         <label className={`transition ease-linear duration-1000 py-2 w-[20vh] text-center rounded-3xl text-lg box-border border-2 ${selectedcat.includes("saksmavisi") ? ' border-4 border-kahve scale-105' : 'scale-100'}`} >
@@ -315,7 +317,7 @@ function Products() {
 
 
 
-                <div className=' bg-kahve transition-all duration-1000 ease-in-out mx-10 flex flex-col items-center justify-center py-10 rounded-3xl'>
+                <div className=' bg-kahve transition-all duration-1000 ease-in-out mx-10 max-md:mx-0 flex flex-col items-center justify-center py-10 rounded-3xl'>
 
 
                     <div className='grid grid-cols-3 mx-20 gap-x-10 gap-y-10 grid-rows-3 max-md:flex max-md:flex-wrap'>
