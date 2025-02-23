@@ -1,26 +1,58 @@
-E-Ticaret Kuf Projesi
+🛍️ E-Commerce Clothing Store
+
+🚀 Proje Hakkında
+
+Bu proje, modern bir e-ticaret kıyafet mağazasıdır. Kullanıcılar, geniş ürün yelpazesini keşfedebilir, filtreleme ve sıralama yapabilir, kendi sepetlerine ürün ekleyebilir ve hesaplarını yönetebilirler. Adminler, ürünleri ekleyebilir, düzenleyebilir ve silebilir. Proje, Kuf Studio Instagram hesabından esinlenerek geliştirilmiştir.
+
+
+🚀Demo
+https://kufproject-git-main-mehmet-akif-tanyeris-projects.vercel.app/
+
+
+
+🎯 Özellikler
+
+🔹 Responsive Design: Mobil ve masaüstü cihazlara uyumlu.
+
+🔹 Firebase Authentication: Kullanıcı girişi ve kaydı.
+
+🔹 Firestore Database: Kullanıcı bilgilerini ve ürünleri depolama.
+
+🔹 Kullanıcı Sepeti: Her kullanıcının kendine ait sepeti bulunur.
+
+🔹 Ürün Yönetimi: Firestore ile ürün listeleme.
+
+🔹 Cloudinary : Cloudinary ile ürün fotoğrafı ekleme ve yönetme.
+
+🔹 Admin Paneli: Ürün ekleme, düzenleme ve silme imkanı.
+
+🔹 Arama Butonu: Ürünleri kolayca arama.
+
+🔹 Filtreleme & Sıralama: Ürünleri belirli kriterlere göre sıralama.
+
+
+
+🛠️ Kullanılan Teknolojiler
+
+Frontend: React, Redux, Tailwind CSS
+
+Backend: Firebase (Firestore, Authentication)
+
+Diğer Araçlar: Axios, React Router, Cloudinary
+
+
+
+📸 Ekran Görüntüleri
+
+Buraya proje ekran görüntüleri eklenebilir.
+
+![image](https://github.com/user-attachments/assets/08eda337-0a19-4857-8204-5e204f482453)
 
 
 
 
-## Demo
-Canlı demo için: https://miniblog-ten-virid.vercel.app/
 
-## Özellikler
-- Kullanıcılar Firebase ile giriş yapabilir.
-- Ana sayfada tüm blog yazıları görüntülenir.
-- Her kullanıcı yalnızca kendi yazdığı blogları düzenleyip silebilir.
-- Blog yazıları eklenebilir.
-
-## Teknolojiler
-- React.js
-- Redux toolkit
-- Tailwind
-- Firebase Authentication
-- Firebase Firestore 
-- Vercel 
-
-## Kurulum
+🛠️ Kurulum
 
 1. GitHub'dan projeyi klonlayın
 
@@ -39,15 +71,17 @@ Firebase hesabınızı oluşturun ve proje ayarlarını alarak firebase.js dosya
 npm start
 
 Firebase ile giriş yapın.
-Ana sayfada blogları görebilirsiniz.
-Sağ üst köşede "Blog Ekle" butonuna tıklayarak yeni blog yazısı oluşturun.
-Yalnızca kendi yazdığınız blogları düzenleyebilir veya silebilirsiniz.
 
 
-Katkı Sağlama
-Katkı sağlamak isterseniz, lütfen bir "Pull Request" oluşturun. Öncelikle main branch'ine bir PR açmadan önce, kendi branch'inizde değişiklikler yapmanızı öneririm.
+📌 Katkıda Bulunma
+
+Katkıda bulunmak isterseniz:
+
+Depoyu forkladıktan sonra kendi branch'inizi oluşturun.
+
+Yaptığınız değişiklikleri ekleyip commit atın.
+
+PR (Pull Request) göndererek katkıda bulunun.
 
 
-Herhangi bir sorunuz olursa, mehmetakiftanyerii@hotmail.com adresiyle iletişime geçebilirsiniz.
-
-Not:** Projeyi yüklerken bazı sorunlar yaşadım ve projeyi silip baştan yükledim. Bu nedenle commit geçmişi gözükmüyor. Eğer commit geçmişini görmek isterseniz hesabımdaki frbauthV3038 isimli repoya bakabilirsiniz.
+E-posta : mehmetakiftanyerii@hotmail.com
