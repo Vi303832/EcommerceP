@@ -48,12 +48,24 @@ Diğer Araçlar: Axios, React Router, Cloudinary
 ![screencapture-kufproject-git-main-mehmet-akif-tanyeris-projects-vercel-app-2025-02-23-21_10_09](https://github.com/user-attachments/assets/d48e571d-b709-4117-96ef-99691233f88c)
 
 
+Diğer fotoğraflar:
+
+Ürün Sayfası:
+https://i.imgur.com/QiYjSqM.jpeg
+https://i.imgur.com/FksgHVB.png
+
+Sepet:
+https://i.imgur.com/5VUqsm4.png
+
+Admin Sayfası:
+https://i.imgur.com/DXoqxfK.png
+https://i.imgur.com/yNoPA8q.png
 
 🛠️ Kurulum
 
 1. GitHub'dan projeyi klonlayın
 
-git clone https://github.com/Vi303832/MiniBlog
+git clone (https://github.com/Vi303832/EcommerceP)
 
 2. Gerekli bağımlılıkları yükleyin
 
