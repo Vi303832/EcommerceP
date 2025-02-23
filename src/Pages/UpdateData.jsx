@@ -23,7 +23,7 @@ function UpdateData() {
     const [categorys, setcategorys] = useState([]);
 
     useEffect(() => {
-        if (uid !== "KcOJ8SIpHgfJdQvUiIZgQLqgyaM2") {
+        if (uid != import.meta.env.VITE_UID) {
             navigate("/");
         }
 

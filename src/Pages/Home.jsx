@@ -45,7 +45,7 @@ function Home() {
 
                 <div className='font-arial'>
                     <div className='h-[100%] w-[80%] max-sm:w-[100%] mx-30 mt-50 mb-10 flex max-lg:mx-15  max-sm:gap-2 max-sm:mx-1 gap-3'>
-                        <div className='w-[50%] h-[50%] max-lg:w-[250%] max-lg:h-[100%] '><img src={bottom} className='h-[80vh] w-[80%] max-lg:w-[100%] object-fit max-lg:object-cover max-sm:w-[100%] ' /></div>
+                        <div className='w-[50%] h-[50%] max-lg:w-[250%] max-lg:h-[100%] '><img src={bottom} className='h-[80vh] w-[90%]  max-lg:w-[100%] object-fit max-lg:object-cover max-sm:w-[100%] ' /></div>
                         <div className='flex flex-col justify-center items-center gap-15'>
                             <div className='flex flex-col  justify-start items-start gap-15 w-[100%] '>
                                 <div className='gap-5 flex flex-col'>
@@ -85,96 +85,104 @@ function Home() {
                         background: "linear-gradient(180deg, rgba(251,250,211,1) 10%, rgba(115,4,4,1) 40%, rgba(116,7,6,1) 99%)"
                     }}
                 >
-                    <div className='w-[90%] min-h-screen font-arial '>
-                        <div className='px-30 max-md:px-10 pt-100 pb-40'>
-                            <div id="about" className='text-[#fdf3e9] text-5xl py-20'>Hakkımızda</div>
-                            <div className='w-[100%] flex gap-10 max-md:flex-col'>
-                                <div className='w-[60%] max-md:w-[100%]'>
-                                    <img src={hakkımızda} className='max-md:w-[130%]' />
-                                </div>
-                                <div className='w-[30%] max-md:w-[60vh]  text-[#fdf3e9] items-center justify-center '>
-                                    <div className='py-20 text-2xl max-md:h-[50vh] max-md:text-lg  '>KUF olarak, tasarımda rahatlık ve şıklığı bir arada sunma misyonuyla yola çıktık. Günlük yaşamın hızına ayak uydururken estetik ve konforu birleştirerek, her bireyin kendini özgürce ifade edebileceği parçalar yaratıyoruz. Amacımız, sadece giysi değil, aynı zamanda stil ve kişiliğinizi yansıtan anlamlı tasarımlar üretmektir.
+                    <div className='flex justify-center items-center'>
+                        <div className='w-[90%] min-h-screen font-arial flex flex-col items-center   max-md:w-full '>
+                            <div className='px-30 max-md:px-10 pt-100 pb-40 max-lg:flex max-lg:flex-col justify-center items-center'>
+                                <div id="about" className='text-[#fdf3e9] text-5xl py-20g-amber-800 text-center my-5'>Hakkımızda</div>
 
+                                <div className='w-[100%] flex justify-center items-center gap-10 max-lg:flex-col '>
+
+                                    <div className='w-[60%] max-lg:w-[100%]'>
+                                        <img src={hakkımızda} className='max-md:w-[130%]' />
                                     </div>
 
-                                </div>
-
-
-                            </div>
-                        </div>
-                        <div className='px-30  flex flex-col gap-10 pt-10 font-arial' style={{
-                            background: "linear-gradient(180deg, rgba(115,4,4,0) 10%, rgba(136,60,52,0) 100%)"
-                        }} >
-
-
-                            <div className='text-beyaz'>
-                                <div className='text-5xl pb-5'>Bizi Takip Et</div>
-                            </div>
-                            <div className='flex gap-2 h-[60vh]  overflow-hidden w-[120%] max-lg:justify-center'>
-                                <img src={insta1} />
-                                <img className="max-md:hidden" src={insta2} />
-                                <img className='max-lg:hidden ' src={insta3} />
-                                <img className='max-xl:hidden ' src={insta4} />
-                            </div>
-
-                            <div className='text-beyaz text-2xl flex justify-center items-center w-[100%] text-center pb-5 max-sm:h-[20%]'>
-                                <div>Fırsatları kaçırmamak için KUF’u takip edin! ✨ Şıklık ve rahatlık bir arada! Hem estetik hem de konforlu tasarımlarımızla her anınızı özel kılın. Yeni koleksiyonlar, özel indirimler ve daha fazlası için bizi takipte kalın!</div>
-                            </div>
-                            <div className='flex justify-center pb-20'>
-
-                                <button className='flex gap-2 items-center justify-center text-beyaz  rounded-3xl  px-4 py-2  bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045]'><FaInstagram /><div>Kuf.studio Takip Et</div></button>
-
-                            </div>
-                            <div className='max-sm:  my-20 p-20 bg-ten rounded-3xl font-arial flex gap-3 max-sm:m-0 max-sm:px-50  max-lg:p-10 max-md:w-[100%] max-sm:relative max-sm:right-20 '>
-                                <div id="iletişim" className='flex flex-col h-[100%] w-[50%] gap-2 bg max-xl:hidden max-sm:hidden max-sm:w-0'>
-                                    <div className='text-3xl'>İletişim</div>
-                                    <img src={park} className='w-[100%] h-[70vh] object-cover max-md:' />
-                                </div>
-                                <div className='w-[50%] border-2 p-2 flex max-xl:w-[100%] max-md:flex-col max-sm:relative max-sm:right-30  max-sm:w-[300vh] '>
-                                    <div className='w-[50%] h-[100%] max-md:w-[100%] max-md:p-5'>
-                                        <div className=' flex flex-col gap-10 justify-center items-center  h-[100%]'>
-
-                                            <div>
-                                                <div className='text-2xl'>Adınız Soyadınız</div>
-                                                <input className='w-[100%] border-b-2 '></input>
-                                            </div>
-                                            <div>
-                                                <div className='text-2xl'>E-mail</div>
-                                                <input className='w-[100%] border-b-2'></input>
-                                            </div>
-                                            <div>
-                                                <div className='text-2xl'>Mesajınız</div>
-                                                <textarea className='w-[100%] h-[120%] border-b-2 resize-none'></textarea>
-                                            </div>
-                                            <button className='my-10 bg-bordo rounded-3xl px-3 py-1 text-beyaz box-border '>Gönder</button>
-                                        </div>
-
-
-
-                                    </div>
-                                    <div className='w-[50%] flex flex-col justify-center items-center max-md:w-[100%] max-md:py-5 '>
-
-                                        <div className='flex flex-col gap-10'>
-                                            <div className='text-2xl'>İletişim Bilgileri</div>
-                                            <div className='flex flex-col gap-5'>
-                                                <div>onurcetin72208@gmail.com</div>
-                                                <div>Tekirdağ/Türkiye?</div>
-                                                <div>+90 5xxxxxxxx</div>
-                                            </div>
+                                    <div className='w-[30%] max-xl:w-[50%] max-lg:w-full flex text-[#fdf3e9] items-center justify-center  '>
+                                        <div className='py-20 text-2xl max-md:h-[50vh] max-md:text-lg  '>
+                                            KUF olarak, tasarımda rahatlık ve şıklığı bir arada sunma misyonuyla yola çıktık. Günlük yaşamın hızına ayak uydururken estetik ve konforu birleştirerek, her bireyin kendini özgürce ifade edebileceği parçalar yaratıyoruz. Amacımız, sadece giysi değil, aynı zamanda stil ve kişiliğinizi yansıtan anlamlı tasarımlar üretmektir.
 
                                         </div>
 
                                     </div>
 
+
                                 </div>
                             </div>
+                            <div className='px-30  flex flex-col justify-center   items-center gap-15 pt-10 font-arial' style={{
+                                background: "linear-gradient(180deg, rgba(115,4,4,0) 10%, rgba(136,60,52,0) 100%)"
+                            }} >
+
+
+                                <div className='text-beyaz '>
+                                    <div className='text-5xl pb-5 text-center'>Bizi Takip Et</div>
+                                </div>
+                                <div className='flex gap-2 h-[60vh]    overflow-hidden w-[120%] max-lg:justify-center'>
+                                    <img src={insta1} />
+                                    <img className="max-md:hidden" src={insta2} />
+                                    <img className='max-lg:hidden ' src={insta3} />
+                                    <img className='max-xl:hidden ' src={insta4} />
+                                </div>
+
+                                <div className='text-beyaz text-2xl flex justify-center items-center w-[100%] text-center pb-5 max-sm:h-[20%]'>
+                                    <div>Fırsatları kaçırmamak için KUF’u takip edin! ✨ Şıklık ve rahatlık bir arada! Hem estetik hem de konforlu tasarımlarımızla her anınızı özel kılın. Yeni koleksiyonlar, özel indirimler ve daha fazlası için bizi takipte kalın!</div>
+                                </div>
+                                <div className='flex justify-center pb-20'>
+
+                                    <button className='flex gap-2 items-center justify-center text-beyaz  rounded-3xl  px-4 py-2  bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045]'><FaInstagram /><div>Kuf.studio Takip Et</div></button>
+
+                                </div>
+                                <div className='  my-20 p-20 bg-ten rounded-3xl font-arial flex gap-3  max-md:w-[80vh] max-lg:w-[120vh] '>
+                                    <div id="iletişim" className='flex flex-col h-[100%] w-[50%] gap-2 bg max-xl:hidden max-sm:hidden max-sm:w-0'>
+                                        <div className='text-3xl'>İletişim</div>
+                                        <img src={park} className='w-[100%] h-[70vh] object-cover max-md:' />
+                                    </div>
+
+                                    <div className='w-[50%] border-2 p-2 flex max-xl:w-[100%] max-md:flex-col  '>
+                                        <div className='w-[50%] h-[100%] max-md:w-[100%] max-md:p-5'>
+                                            <div className=' flex flex-col gap-10 justify-center items-center  h-[100%]'>
+
+                                                <div>
+                                                    <div className='text-2xl'>Adınız Soyadınız</div>
+                                                    <input className='w-[100%] border-b-2 '></input>
+                                                </div>
+                                                <div>
+                                                    <div className='text-2xl'>E-mail</div>
+                                                    <input className='w-[100%] border-b-2'></input>
+                                                </div>
+                                                <div>
+                                                    <div className='text-2xl'>Mesajınız</div>
+                                                    <textarea className='w-[100%] h-[120%] border-b-2 resize-none'></textarea>
+                                                </div>
+                                                <button className='my-10 bg-bordo rounded-3xl px-3 py-1 text-beyaz box-border '>Gönder</button>
+                                            </div>
+
+
+
+                                        </div>
+                                        <div className='w-[50%] flex flex-col justify-center items-center max-md:w-[100%] max-md:py-5 '>
+                                            <div className='flex flex-col gap-10'>
+                                                <div className='text-2xl'>İletişim Bilgileri</div>
+                                                <div className='flex flex-col gap-5'>
+                                                    <div>onurcetin72208@gmail.com</div>
+                                                    <div>Tekirdağ/Türkiye?</div>
+                                                    <div>+90 5xxxxxxxx</div>
+                                                </div>
+
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+
 
                         </div>
-
-
-
-
                     </div>
+
 
                 </div >
 

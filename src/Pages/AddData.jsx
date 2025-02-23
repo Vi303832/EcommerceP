@@ -10,7 +10,7 @@ function AddData() {
     let uid = localStorage.getItem('uid');
     let navigate = useNavigate()
     useEffect(() => {
-        if (uid != "KcOJ8SIpHgfJdQvUiIZgQLqgyaM2") {
+        if (uid != import.meta.env.VITE_UID) {
             navigate("/")
             navigate("/")
 
@@ -22,8 +22,9 @@ function AddData() {
 
 
 
-    const preset_key = 'Deneme'
-    const cloud_name = 'dwruhrrkm'
+    const preset_key = import.meta.env.VITE_PRESET_KEY
+    const cloud_name = import.meta.env.VITE_CLOUD_NAME
+
     const [dacategory, setdacategory] = useState("");
     const [images, setimage] = useState([]);
     const [colors, setColors] = useState([]);

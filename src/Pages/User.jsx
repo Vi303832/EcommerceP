@@ -113,7 +113,7 @@ function User() {
                             <hr className='opacity-15'></hr>
                         </span>
 
-                        <span onClick={() => handleadmin()} className={`w-[100%]  cursor-pointer ${uid == "KcOJ8SIpHgfJdQvUiIZgQLqgyaM2" ? "block" : "hidden"}`}><div className='px-15 py-4 flex gap-2 text-aclacivert     '><IoEyeOff />Panel</div><hr className='opacity-15'></hr></span>
+                        <span onClick={() => handleadmin()} className={`w-[100%]  cursor-pointer ${uid == import.meta.env.VITE_UID ? "block" : "hidden"}`}><div className='px-15 py-4 flex gap-2 text-aclacivert     '><IoEyeOff />Panel</div><hr className='opacity-15'></hr></span>
 
                         <span className='w-[100%] mb-5 cursor-pointer'>
 
