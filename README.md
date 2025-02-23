@@ -46,7 +46,7 @@ Diğer Araçlar: Axios, React Router, Cloudinary
 
 Buraya proje ekran görüntüleri eklenebilir.
 
-![image](https://github.com/user-attachments/assets/08eda337-0a19-4857-8204-5e204f482453)
+![Uploading screencapture-kufproject-git-main-mehmet-akif-tanyeris-projects-vercel-app-2025-02-23-21_10_09.png…]()
 
 
 
