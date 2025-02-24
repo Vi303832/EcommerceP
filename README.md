@@ -12,8 +12,6 @@ https://kufproject-git-main-mehmet-akif-tanyeris-projects.vercel.app/
 
 🎯 Özellikler
 
-🔹 Responsive Design: Mobil ve masaüstü cihazlara uyumlu.
-
 🔹 Firebase Authentication: Kullanıcı girişi ve kaydı.
 
 🔹 Firestore Database: Kullanıcı bilgilerini ve ürünleri depolama.
