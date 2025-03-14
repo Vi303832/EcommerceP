@@ -1,16 +1,16 @@
-🛍️ E-Commerce Clothing Store
+- E-Commerce Clothing Store
 
-🚀 Proje Hakkında
+-Proje Hakkında
 
 Bu proje, modern bir e-ticaret kıyafet mağazasıdır. Kullanıcılar, geniş ürün yelpazesini keşfedebilir, filtreleme ve sıralama yapabilir, kendi sepetlerine ürün ekleyebilir ve hesaplarını yönetebilirler. Adminler, ürünleri ekleyebilir, düzenleyebilir ve silebilir. Proje, Kuf Studio Instagram hesabından esinlenerek geliştirilmiştir.
 
 
-🚀Demo
+-Demo
 https://kufproject-git-main-mehmet-akif-tanyeris-projects.vercel.app/
 
 
 
-🎯 Özellikler
+- Özellikler
 
 🔹 Firebase Authentication: Kullanıcı girişi ve kaydı.
 
@@ -30,7 +30,7 @@ https://kufproject-git-main-mehmet-akif-tanyeris-projects.vercel.app/
 
 
 
-🛠️ Kullanılan Teknolojiler
+- Kullanılan Teknolojiler
 
 Frontend: React, Redux, Tailwind CSS
 
@@ -39,8 +39,7 @@ Backend: Firebase (Firestore, Authentication)
 Diğer Araçlar: Axios, React Router, Cloudinary
 
 
-
-📸 Ekran Görüntüleri
+- Ekran Görüntüleri
 
 
 ![screencapture-kufproject-git-main-mehmet-akif-tanyeris-projects-vercel-app-2025-02-23-21_10_09](https://github.com/user-attachments/assets/d48e571d-b709-4117-96ef-99691233f88c)
@@ -59,7 +58,7 @@ Admin Sayfası:
 https://i.imgur.com/DXoqxfK.png
 https://i.imgur.com/yNoPA8q.png
 
-🛠️ Kurulum
+- Kurulum
 
 1. GitHub'dan projeyi klonlayın
 
@@ -80,7 +79,7 @@ npm start
 Firebase ile giriş yapın.
 
 
-📌 Katkıda Bulunma
+- Katkıda Bulunma
 
 Katkıda bulunmak isterseniz:
 
