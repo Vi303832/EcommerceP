@@ -159,11 +159,11 @@ function Home() {
 
                                         </div>
                                         <div className='w-[50%] flex flex-col justify-center items-center max-md:w-[100%] max-md:py-5 '>
-                                            <div className='flex flex-col gap-10'>
+                                            <div className='flex flex-col mb-60 gap-10 p-5'>
                                                 <div className='text-2xl'>İletişim Bilgileri</div>
                                                 <div className='flex flex-col gap-5'>
-                                                    <div>onurcetin72208@gmail.com</div>
-                                                    <div>Tekirdağ/Türkiye?</div>
+                                                    <div>xxxx@gmail.com</div>
+                                                    <div>xxx/Türkiye?</div>
                                                     <div>+90 5xxxxxxxx</div>
                                                 </div>
 
